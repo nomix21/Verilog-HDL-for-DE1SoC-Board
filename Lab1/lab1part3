@@ -1,3 +1,13 @@
+module counter(input clk, reset_n, enable, output reg[WIDTH-1:0] result);
+    parameter WIDTH=4;
+    always@(posedge clk, negedge reset_n)
+        if(!reset_n) begin
+            result <= {WIDTH{1'b0}};
+        end else if(enable) begin
+            result <= result + 1'b1;
+        end
+endmodule
+
 module mod1(HEX0);
     output [6:0] HEX0;
     assign HEX0[6:0]=7'b1111111; // HEX0 is OFF
@@ -32,30 +42,70 @@ module mod2(input [3:0] SW, output [6:0] HEX0);
     end
 endmodule
 
-module mod3(input [3:0] KEY, output reg[WIDTH-1:0] result);
-	parameter WIDTH=4;
-	always@(*)
-	if (KEY[0]==1) begin
-	result<=30'b0;
-	end else if(KEY[3])begin
-	result<=result+1'b1;
+module mod3(KEY, result);
+	input [3:0] KEY;
+	output reg [3:0] result;
+	always@(negedge KEY[3] or negedge KEY[0])
+		begin				//buttons activate on negedge
+		if(!KEY[0])
+			begin
+			result <= 4'b0;
+			end
+		else begin
+			result <= result + 1'b1;
+			end
 	end
-	
 endmodule
 
-module lab1part3(SW, KEY, HEX0);
+
+module mod4(input clk, reset_n, output [6:0] HEX0);
+    wire [29:0] cnt_res;       // unique counter result wire
+    wire [6:0] mod2_out_unique; // unique wire for mod2 output
+
+    // 30-bit counter
+    counter #(.WIDTH(30)) counter_mod4 (
+        .clk(clk),
+        .reset_n(reset_n),
+        .enable(1'b1),
+        .result(cnt_res)
+    );
+
+    // top 4 bits go to mod2
+    mod2 decoder_mod4 (
+        .SW(cnt_res[29:26]),
+        .HEX0(mod2_out_unique)
+    );
+
+    // assign mod2 output to HEX0
+    assign HEX0 = mod2_out_unique;
+endmodule
+
+
+
+module lab1part3(SW, KEY, CLOCK_50,HEX0);
     input [9:0] SW;
     input [3:0] KEY;
+	 input CLOCK_50;
     output reg [6:0] HEX0;
+	 reg [3:0] count; 
     wire [6:0] mod1_wire;
 	 wire [6:0] mod2_wire;
+	 wire [3:0] mod3_wire;
+	 wire [6:0] mod4_wire;
+	 wire [6:0] mod5_wire;
+	 
+	 
 	 /*wire [3:0] mod3_wire;
 	 wire [3:0] m4_wire;*/
+	 
+
     
     //instanciate the mod1
     mod1 m1(.HEX0(mod1_wire));
 	 mod2 m2(SW[3:0],mod2_wire); //instanciate the mod2
-	 
+	 mod3 m3(KEY[3:0],mod3_wire);
+	 mod2 m4(mod3_wire[3:0], mod4_wire);
+	 mod4 m5(CLOCK_50, KEY[0], mod5_wire);
 	 /* mod3 m3(KEY[3:0],mod3_wire);
 	 mod2 m4(mod3_wire[3:0], m4_wire);
 	 */
@@ -68,6 +118,7 @@ module lab1part3(SW, KEY, HEX0);
 
     always @(*)
     begin
+		  //count = 4'b1110;
         if (SW[8]==1 && SW[9]==1)
             begin
                 HEX0[6:0] = mod1_wire;
@@ -76,10 +127,14 @@ module lab1part3(SW, KEY, HEX0);
 				begin
                 HEX0[6:0] = mod2_wire; 
 				end
-			/*else if (SW[9]==0 && SW[8]==1)
+			else if (SW[9]==0 && SW[8]==1)
 				begin
-					HEX0[6:0] = m4_wire;
-				end */
+					HEX0[6:0] = mod4_wire;
+				end 
+			else if (SW[9]==1 && SW[8]==0)
+				begin
+					HEX0[6:0] = mod5_wire;
+				end 
 			else begin
 				HEX0[6:0] = 7'b0000000;
 				end
