@@ -63,18 +63,10 @@ module mod4(input clk, reset_n, output [6:0] HEX0);
     wire [6:0] mod2_out_unique; // unique wire for mod2 output
 
     // 30-bit counter
-    counter #(.WIDTH(30)) counter_mod4 (
-        .clk(clk),
-        .reset_n(reset_n),
-        .enable(1'b1),
-        .result(cnt_res)
-    );
+    counter #(.WIDTH(30)) counter_mod4 (clk,reset_n,1'b1,cnt_res);
 
     // top 4 bits go to mod2
-    mod2 decoder_mod4 (
-        .SW(cnt_res[29:26]),
-        .HEX0(mod2_out_unique)
-    );
+    mod2 decoder_mod4 (cnt_res[29:26],mod2_out_unique);
 
     // assign mod2 output to HEX0
     assign HEX0 = mod2_out_unique;
@@ -95,7 +87,7 @@ module lab1part3(SW, KEY, CLOCK_50,HEX0);
 	 
     
     //instanciate the mod1
-    mod1 m1(.HEX0(mod1_wire));
+    mod1 m1((mod1_wire));
 	 mod2 m2(SW[3:0],mod2_wire); //instanciate the mod2
 	 mod3 m3(KEY[3:0],mod3_wire);
 	 mod2 m4(mod3_wire[3:0], mod4_wire);
