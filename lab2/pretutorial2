@@ -15,7 +15,7 @@ begin
     end 
     else 
     begin
-        if (counter == (N-1)) 
+        if (counter == ((50_000/2)-1)) 
         begin
             counter <= 0;
             clk_out <= ~clk_out;  // Toggle output clock
