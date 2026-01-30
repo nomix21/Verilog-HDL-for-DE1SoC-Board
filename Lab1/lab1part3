@@ -87,18 +87,12 @@ module lab1part3(SW, KEY, CLOCK_50,HEX0);
     input [3:0] KEY;
 	 input CLOCK_50;
     output reg [6:0] HEX0;
-	 reg [3:0] count; 
     wire [6:0] mod1_wire;
 	 wire [6:0] mod2_wire;
 	 wire [3:0] mod3_wire;
 	 wire [6:0] mod4_wire;
 	 wire [6:0] mod5_wire;
 	 
-	 
-	 /*wire [3:0] mod3_wire;
-	 wire [3:0] m4_wire;*/
-	 
-
     
     //instanciate the mod1
     mod1 m1(.HEX0(mod1_wire));
@@ -106,15 +100,7 @@ module lab1part3(SW, KEY, CLOCK_50,HEX0);
 	 mod3 m3(KEY[3:0],mod3_wire);
 	 mod2 m4(mod3_wire[3:0], mod4_wire);
 	 mod4 m5(CLOCK_50, KEY[0], mod5_wire);
-	 /* mod3 m3(KEY[3:0],mod3_wire);
-	 mod2 m4(mod3_wire[3:0], m4_wire);
-	 */
-	 
-	 /* When the program starts, all HEX displays are off, except HEX0
-	 initial
-		begin
-			HEX0[6:0] = 7'b0000000;
-		end */
+
 
     always @(*)
     begin
