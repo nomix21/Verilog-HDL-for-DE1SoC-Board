@@ -1,3 +1,42 @@
+// Clock Divider: slows the clock signal from 50MHz to 1KHz
+module clock_divider (input clk, reset_n, output reg clk_ms);
+ parameter factor=10; //50000; // 32’h000061a7;
+ reg [31:0] countQ;
+ always @ (posedge clk, negedge reset_n)
+  begin
+   if (!reset_n) begin
+    countQ <= 32'b0;
+   end
+    else begin
+     if (countQ<factor/2) begin
+      /* fill in your code here */
+     end
+     else if (countQ<factor) begin
+      /* fill in your code here */
+     end
+     else begin //countQ==factor 
+      /* fill in your code here */
+     end
+   end
+  end
+endmodule
+
+// Counter logic to reset the counter, to stop (enable) the counter without resetting the
+current value, and to resume counting after being pause
+module counter(input clk, input reset_n, start_n, stop_n, , output reg [19:0] ms_count);
+/* fill in your code here */
+endmodule
+
+module counter(input clk, reset_n, enable, output reg[WIDTH-1:0] result);
+    parameter WIDTH=4;
+    always@(posedge clk, negedge reset_n)
+        if(!reset_n) begin
+            result <= {WIDTH{1'b0}};
+        end else if(enable) begin
+            result <= result + 1'b1;
+        end
+endmodule
+
 module seven_seg(input [3:0] SW, output [6:0] HEX0);
     reg [6:0] reg_LEDs;
     assign HEX0[6:0]=reg_LEDs[6:0];
@@ -19,7 +58,3 @@ module seven_seg(input [3:0] SW, output [6:0] HEX0);
         endcase
     end
 endmodule
-
-
-
-

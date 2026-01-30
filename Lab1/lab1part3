@@ -120,4 +120,3 @@ module lab1part3(SW, KEY, CLOCK_50,HEX0);
 	 
 endmodule
 
-//Test pushing this change//
