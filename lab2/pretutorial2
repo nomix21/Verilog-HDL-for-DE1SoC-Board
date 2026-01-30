@@ -1,6 +1,6 @@
 // Clock Divider: slows the clock signal from 50MHz to 1KHz
 module clock_divider #(
-    parameter N = (50_000/2)  // Default divide by 4
+    parameter N = (50_000/2)  
 )(
     input wire clk_in,
     input wire rst_n,
