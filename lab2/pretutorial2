@@ -58,7 +58,8 @@ module seven_seg(input [3:0] SW, output [6:0] HEX0);
     end
 endmodule
 
-module hex_to_bcd_converter(input wire clk, reset, input wire [19:0] hex_number,output [3:0] bcd_digit_0,bcd_digit_1,bcd_digit_2,bcd_digit_3, bcd_digit_4,bcd_digit_5);
+module hex_to_bcd_converter(input wire clk, reset, input wire [19:0] hex_number,
+                            output [3:0] bcd_digit_0,bcd_digit_1,bcd_digit_2,bcd_digit_3, bcd_digit_4,bcd_digit_5);
 // DE1-SoC has 6 7_seg_LEDs, 20 bits can represent decimal 999999.
 //This module is designed to convert a 20 bit binary representation
 //to BCD
@@ -75,14 +76,18 @@ assign bcd_digit_5=bcd_digit[5];
 always @ (*)
 begin
 //set all 6 digits to 0
-/* fill your code here */
+    for (k=0; k<=5; k=k+1)
+    begin
+        bcd_digit[k]=4'b0000;
+    end
 //shift 20 times
     for (i=19; i>=0; i=i-1)
     begin
     //check all 6 BCD tetrads, if >=5 then add 3
         for (k=5; k>=0; k=k-1)
         begin
-        /* fill your code here */
+            if (bcd_digit[k]>=4'b0101)
+                bcd_digit[k]=bcd_digit[k]+4'b0011;
         end
         //shift one bit of BIN/HEX left
         //for the first 5 tetrads
