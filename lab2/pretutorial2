@@ -25,13 +25,14 @@ end
  
 endmodule
 
-// Counter logic to reset the counter, to stop (enable) the counter without resetting the current value, and to resume counting after being pause
+/* Counter logic to reset the counter, to stop (enable) the counter without resetting the current value, and to resume counting after being pause
 module counter(input clk, input reset_n, start_n, stop_n, , output reg [19:0] ms_count);
 /* fill in your code here */
 endmodule
+*/
 
-module counter(input clk, reset_n, enable, output reg[WIDTH-1:0] result);
-    parameter WIDTH=4;
+module counter(input clk, reset_n, enable, output reg[WIDTH-1:0] ms_count);
+    parameter WIDTH=19;
     always@(posedge clk, negedge reset_n)
         if(!reset_n) begin
             result <= {WIDTH{1'b0}};
