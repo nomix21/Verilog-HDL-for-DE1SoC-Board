@@ -97,8 +97,12 @@ begin
             bcd_digit[k][0]=bcd_digit[k-1][3];
         end
     //shift one bit of BIN/HEX left, for the last tetrad
-    bcd_digit[0]=bcd_digit[0] << 1;
-    
+    /*your*/
+        begin
+            bcd_digit[0]=bcd_digit[0] << 1;
+            bcd_digit[0][0]=hex_number1[i];
+        end
+
     end //end for loop
 end //end of always.
 endmodule
