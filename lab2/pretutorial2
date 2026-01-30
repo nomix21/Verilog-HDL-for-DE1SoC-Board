@@ -1,33 +1,20 @@
 // Clock Divider: slows the clock signal from 50MHz to 1KHz
-module clock_divider (factor,clk_in, rst_n, clk_out);
-    input wire clk_in;
-    input wire rst_n;
-    output reg clk_out;
-    input wire factor; 
-
+module clock_divider (input wire factor, clk_in, reset_n, output reg clk_out);
     reg [(factor/2)-1:0] counter;
  
-always @(posedge clk_in or negedge rst_n) 
-begin
-    if (!rst_n) 
-    begin
-        counter <= 0;
-        clk_out <= 0;
-    end 
-    else 
-    begin
-        if (counter == ((factor/2)-1)) 
-        begin
+    always @(posedge clk_in or negedge reset_n) begin
+        if (!reset_n) begin
             counter <= 0;
-            clk_out <= ~clk_out;  // Toggle output clock
-        end 
-        else 
-        begin
-            counter <= counter + 1;
+            clk_out <= 0;
+        end else begin
+            if (counter == ((factor/2)-1)) begin
+                counter <= 0;
+                clk_out <= ~clk_out;  // Toggle output clock
+            end else begin
+                counter <= counter + 1;
+            end
         end
     end
-end
- 
 endmodule
 
 // Counter logic to reset the counter, to stop (enable) the counter without resetting the current value, and to resume counting after being pause
@@ -135,6 +122,6 @@ module lab2tut (input CLOCK_50, input [2:0] KEY, output [6:0] HEX0, HEX1, HEX2, 
     seven_seg_decoder decoder0(digit3, HEX3);
     seven_seg_decoder decoder0(digit4, HEX4);
     seven_seg_decoder decoder0(digit5, HEX5);
-    
+
     /* fill in your code here */
 endmodule
