@@ -1,24 +1,28 @@
 // Clock Divider: slows the clock signal from 50MHz to 1KHz
-module clock_divider (input clk, reset_n, output reg clk_ms);
- parameter factor=10; //50000; // 32’h000061a7;
- reg [31:0] countQ;
- always @ (posedge clk, negedge reset_n)
-  begin
-   if (!reset_n) begin
-    countQ <= 32'b0;
-   end
-    else begin
-     if (countQ<factor/2) begin
-      /* fill in your code here */
-     end
-     else if (countQ<factor) begin
-      /* fill in your code here */
-     end
-     else begin //countQ==factor 
-      /* fill in your code here */
-     end
-   end
-  end
+module clock_divider #(
+    parameter N = (50_000/2)  // Default divide by 4
+)(
+    input wire clk_in,
+    input wire rst_n,
+    output reg clk_out
+);
+ 
+reg [$clog2(N)-1:0] counter;
+ 
+always @(posedge clk_in or negedge rst_n) begin
+    if (!rst_n) begin
+        counter <= 0;
+        clk_out <= 0;
+    end else begin
+        if (counter == (N-1)) begin
+            counter <= 0;
+            clk_out <= ~clk_out;  // Toggle output clock
+        end else begin
+            counter <= counter + 1;
+        end
+    end
+end
+ 
 endmodule
 
 // Counter logic to reset the counter, to stop (enable) the counter without resetting the current value, and to resume counting after being pause
