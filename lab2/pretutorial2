@@ -53,24 +53,25 @@ module Tut2(
 endmodule
 
 // Counter logic to reset the counter, to stop (enable) the counter without resetting the current value, and to resume counting after being pause
-module counter(input clk, reset_n, start_n, stop_n, output reg[WIDTH-1:0] ms_count);
-    parameter WIDTH=19;
-    reg enable;
+module counter(
+    input clk, 
+    input reset_n, 
+    input start_n,   // start counting
+    input stop_n,    // pause counting
+    output reg [WIDTH-1:0] ms_count
+);
+    parameter WIDTH = 19;
 
-    always@(posedge clk, negedge reset_n) begin
-        if(!reset_n) begin
-            ms_count <= {WIDTH{1'b0}};
-        end else if (!start_n) begin // enable = 1, start/resume
-            enable <= b'1;
-        end else if (!stop_n) begin // enable = 0, pause
-            enable <= b'0;
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            ms_count <= {WIDTH{1'b0}};   // reset counter
+        end else if (start_n && !stop_n) begin
+            ms_count <= ms_count + 1'b1; // increment only when started and not stopped
         end
-
-        if (enable) begin // count when enabled
-            ms_count <= ms_count + 1'b1;
-        end
+        // else hold value (pause)
     end
 endmodule
+
 
 module seven_seg(input [3:0] digit, output [6:0] HEX);
     reg [6:0] reg_LEDs;
