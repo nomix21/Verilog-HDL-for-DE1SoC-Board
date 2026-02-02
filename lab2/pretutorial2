@@ -36,10 +36,11 @@ module counter(input clk, reset_n, start_n, stop_n, output reg[WIDTH-1:0] ms_cou
     always@(posedge clk, negedge reset_n)
         if(!reset_n) begin
             ms_count <= {WIDTH{1'b0}};
-        end else if (start_n) begin // enable
+        end else if (start_n && !stop_n) begin // enable
             ms_count <= ms_count + 1'b1;
         end       
 endmodule
+
 
 module seven_seg(input [3:0] SW, output [6:0] HEX0);
     reg [6:0] reg_LEDs;
