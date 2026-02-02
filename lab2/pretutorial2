@@ -17,6 +17,41 @@ module clock_divider (input wire factor, clk_in, reset_n, output reg clk_out);
     end
 endmodule
 
+//Clock divder for simulation purposes
+module Tut2(
+    input Clk, 
+    input Reset_n, 
+    output reg clk_ms
+);
+    parameter factor = 4;
+    reg [31:0] countQ;
+    
+    always @(posedge Clk or negedge Reset_n) begin
+        if (!Reset_n) begin
+            countQ <= 32'd0;
+            clk_ms <= 1'b0;         // Fixed: 1-bit
+        end
+        else begin
+            // Increment and wrap counter
+            if (countQ == factor - 1) begin
+                countQ <= 32'd0;
+            end
+            else begin
+                countQ <= countQ + 1;
+            end
+            
+            // Set output based on counter
+            if (countQ < factor / 2) begin
+                clk_ms <= 1'b0;     // Fixed: 1-bit
+            end
+            else begin
+                clk_ms <= 1'b1;     // Fixed: 1-bit
+            end
+        end
+    end
+
+endmodule
+
 // Counter logic to reset the counter, to stop (enable) the counter without resetting the current value, and to resume counting after being pause
 module counter(input clk, reset_n, start_n, stop_n, output reg[WIDTH-1:0] ms_count);
     parameter WIDTH=19;
