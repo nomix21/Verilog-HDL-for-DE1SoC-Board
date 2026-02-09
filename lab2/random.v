@@ -32,9 +32,13 @@ module random (
 				reg_values[1] <= reg_values[2];
 				// Tap 1 of the diagram from the lab manual
 				reg_values[0] <= reg_values[0] ^ reg_values[1];
+
+                // Output the random number
 				/* fill your code here to make sure the random 
-				 number is between 1000 and 5000 */
-                red_values <= int'(reg_values/3.2766); // 5000/16384 = 3.2766
+				 number is between 1000 and 5000 and the number must be a full number */
+                reg_values <= value/32766;
+                reg_values <= value%1000;
+                randdom <= reg_values;
                 if (reg_values >= 0 && reg_values <= 5000) 
                 begin 
                     rnd_ready <= 1;
