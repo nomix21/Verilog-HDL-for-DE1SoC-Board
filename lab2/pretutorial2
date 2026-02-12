@@ -1,5 +1,4 @@
 // Clock Divider: slows the clock signal from 50MHz to 1KHz
-<<<<<<< HEAD
 module clock_divider (input wire factor, clk_in, reset_n, output reg clk_out);
     reg [(factor/2)-1:0] counter;
     always @(posedge clk_in or negedge reset_n) begin
@@ -21,11 +20,6 @@ endmodule
 module Tut2(
     input Clk, 
     input Reset_n, 
-=======
-module clock_divider(
-    input clk, 
-    input reset_n, 
->>>>>>> 71d6a58094cf2681531fcf44efea5e8a5b25b86f
     output reg clk_ms
 );
     parameter factor = 50000;

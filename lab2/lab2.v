@@ -90,9 +90,6 @@ module lab2(input CLOCK_50,  input [3:0] KEY,  output [6:0] HEX0,HEX1,HEX2,HEX3,
 	blinkHEX #(.factor(200) ) (.ms_clk(clk_ms), .Reset_n(KEY[1]), .d0(w_blink0), .d1(w_blink1), .d2(w_blink2), .d3(w_blink3), .d4(w_blink4),.d5(w_blink5));
 	
 	
-
-	
-	
 	assign digit0=w_blink0;
 	assign digit1=w_blink1;
 	assign digit2=w_blink2;
