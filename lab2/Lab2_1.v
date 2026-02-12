@@ -1,4 +1,4 @@
-module Lab2_1(
+module lab2(
  input CLOCK_50,
  input [3:0] KEY,
  output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
@@ -9,9 +9,9 @@ module Lab2_1(
     wire [3:0] digit0, digit1, digit2, digit3, digit4, digit5; 
     wire clk_ms;
 
-    clock_divider clock_divider(.clk(CLOCK_50), .reset_n(KEY[0]), .clk_ms(clk_ms));
+    clock_divider clock_divider(.clk(CLOCK_50), .reset_n(KEY[1]), .clk_ms(clk_ms));
 
-	blink b1(CLOCK_50, KEY[1], d0, d1, d2, d3, d4,d5);
+	blink b1(clk_ms, KEY[1], d0, d1, d2, d3, d4,d5);
     assign digit0 = d0;
     assign digit1 = d1;
     assign digit2 = d2;
