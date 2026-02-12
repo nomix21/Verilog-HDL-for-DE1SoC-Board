@@ -6,10 +6,10 @@ module Lab2_1(
 );
 
 	blink b1(CLOCK_50, KEY[1], d0, d1, d2, d3, d4,d5);
-    seven_seg_decoder s1(d0, HEX0);
-    seven_seg_decoder s2(d1, HEX1);
-    seven_seg_decoder s3(d2, HEX2);
-    seven_seg_decoder s4(d3, HEX3);
-    seven_seg_decoder s5(d4, HEX4);
-    seven_seg_decoder s6(d5, HEX5);
+    seven_seg_decoder decoder0(d0, HEX0);
+    seven_seg_decoder decoder1(d1, HEX1);
+    seven_seg_decoder decoder2(d2, HEX2);
+    seven_seg_decoder decoder3(d3, HEX3);
+    seven_seg_decoder decoder4(d4, HEX4);
+    seven_seg_decoder decoder5(d5, HEX5);
 endmodule
