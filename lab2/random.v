@@ -35,11 +35,9 @@ module random (
 
                 // Output the random number
 				/* fill your code here to make sure the random 
-				 number is between 1000 and 5000 and the number must be a full number */
-                reg_values <= value/32766;
-                reg_values <= value%1000;
-                randdom <= reg_values;
-                if (reg_values >= 0 && reg_values <= 5000) 
+				 number is between 0 and 5000 and the number must be a full number */
+				random <= (reg_values * 32'd5000) / 32'd16383;// Scale to 0-5000
+                if (random >= 0 && random <= 5000) 
                 begin 
                     rnd_ready <= 1;
                 end else begin
