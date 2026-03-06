@@ -7,14 +7,14 @@ module fir_filter_with_N (
     output reg [15:0] output_sample1 
 );
 
-parameter N = 65; // Default number of FIR taps
+parameter N = 65; // default number of FIR taps
 
-reg [15:0] carry[N-1:0]; // Delay line to hold previous N input samples
+reg [15:0] carry[N-1:0]; // delay line to hold previous N input samples
 reg signed [15:0] finsummations[N-1:0];  // scaled
 reg signed [31:0] finsummation;          // scaled, 32bit for overflow
 reg signed [15:0] coeffs[N-1:0];  
 
-wire signed [31:0] result[N-1:0]; // Multiplication results (16bit * 16bit = 32)
+wire signed [31:0] result[N-1:0]; // multiplication results (16bit * 16bit = 32)
 
 integer x, z; 
 
@@ -59,7 +59,7 @@ generate
 	end
 endgenerate
 
-// FIR Filtering 
+// FIR filtering 
 always @(posedge clk or posedge reset)
 begin
     if (reset) begin
