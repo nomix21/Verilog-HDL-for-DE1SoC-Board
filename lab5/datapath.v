@@ -33,9 +33,10 @@ wire [7:0] w_operandb /*synthesis keep*/;
 wire [7:0] w_immediate_out /*synthesis keep*/;
 wire [3:0] stepper_out /*synthesis keep*/;
 wire [7:0] w_result_out /*synthesis keep*/;
+
 decoder the_decoder (
 	// Inputs
-	.instruction (instruction_out[7:2]),
+	.instruction (w_instruction_out[7:2]),
 	// Outputs
 	.br (br),
 	.brz (brz),
@@ -56,8 +57,8 @@ regfile the_regfile(
 	.reset_n (reset_n),
 	.write (write_reg_file),
 	.data (w_result_out), 
-	.select0 (instruction_out[1:0]),
-	.select1 (instruction_out[3:2]),
+	.select0 (w_instruction_out[1:0]),
+	.select1 (w_instruction_out[3:2]),
 	.wr_select (w_write_address_out),
 	// Outputs
 	.selected0 (w_selected0),
@@ -161,8 +162,8 @@ immediate_extractor the_immediate_extractor(
 write_address_select the_write_address_select(
 	// Inputs
 	.select (select_write_address),
-	.reg_field0 (instruction_out[1:0]),
-	.reg_field1 (instruction_out[3:2]),
+	.reg_field0 (w_instruction_out[1:0]),
+	.reg_field1 (w_instruction_out[3:2]),
 	// Outputs
 	.write_address(w_write_address_out)
 );
