@@ -22,37 +22,46 @@ module datapath (input clk, reset_n,
 wire [7:0] position /*synthesis keep*/;
 wire [7:0] delay /*synthesis keep*/;
 wire [7:0] register0 /*synthesis keep*/;
-
-
+wire [7:0] pc /*synthesis keep*/;
+wire [7:0] alu_out /*synthesis keep*/;
+wire [7:0] instruction_out /*synthesis keep*/;
+wire [1:0] write_address_out /*synthesis keep*/;
+wire [7:0] selected0 /*synthesis keep*/;
+wire [7:0] selected1 /*synthesis keep*/;
+wire [7:0] operanda /*synthesis keep*/;
+wire [7:0] operandb /*synthesis keep*/;
+wire [7:0] immediate_out /*synthesis keep*/;
+wire [3:0] stepper_out /*synthesis keep*/;
+wire [7:0] result_out /*synthesis keep*/;
 decoder the_decoder (
 	// Inputs
-	.instruction (),
+	.instruction (instruction_out[7:2]),
 	// Outputs
-	.br (),
-	.brz (),
-	.addi (),
-	.subi (),
-	.sr0 (),
-	.srh0 (),
-	.clr (),
-	.mov (),
-	.mova (),
-	.movr (),
-	.movrhs (),
-	.pause ()
+	.br (br),
+	.brz (brz),
+	.addi (addi),
+	.subi (subi),
+	.sr0 (sr0),
+	.srh0 (srh0),
+	.clr (clr),
+	.mov (mov),
+	.mova (mova),
+	.movr (movr),
+	.movrhs (movrhs),
+	.pause (pause)
 );
 regfile the_regfile(
 	// Inputs
-	.clk (),
-	.reset_n (),
-	.write (),
-	.data (), 
-	.select0 (),
-	.select1 (),
-	.wr_select (),
+	.clk (clk),
+	.reset_n (reset_n),
+	.write (write_reg_file),
+	.data (result_out), 
+	.select0 (instruction_out[1:0]),
+	.select1 (instruction_out[3:2]),
+	.wr_select (write_address_out),
 	// Outputs
-	.selected0 (),
-	.selected1 (),
+	.selected0 (selected0),
+	.selected1 (selected1),
 	.delay (delay),
 	.position (position),
 	.register0 (register0)
@@ -60,115 +69,115 @@ regfile the_regfile(
 
 op1_mux the_op1_mux(
 	// Inputs
-	.select (),
-	.pc (),
-	.register (),
+	.select (op1_mux_select),
+	.pc (pc),
+	.register (selected0),
 	.register0 (register0),
 	.position (position),
 	// Outputs
-	.result()
+	.result(operanda)
 );
 
 op2_mux the_op2_mux(
 	// Inputs
-	.select (),
-	.register (),
-	.immediate (),
+	.select (op2_mux_select),
+	.register (selected1),
+	.immediate (immediate_out),
 	// Outputs
-	.result ()
+	.result (operandb)
 );
 
 delay_counter the_delay_counter(
 	// Inputs
-	.clk(),
-	.reset_n (),
-	.start (),
-	.enable (),
+	.clk(clk),
+	.reset_n (reset_n),
+	.start (start_delay_counter),
+	.enable (enable_delay_counter),
 	.delay (delay),
 	// Outputs
-	.done ()
+	.done (delay_done)
 );
 
 stepper_rom the_stepper_rom(
 	// Inputs
-	.address (),
-	.clock (),
+	.address (position[2:0]),
+	.clock (clk),
 	// Outputs
-	.q ()
+	.q (stepper_signals)
 );
 
 pc the_pc(
 	// Inputs
-	.clk (),
-	.reset_n (),
-	.branch (),
-	.increment (),
-	.newpc (),
+	.clk (clk),
+	.reset_n (reset_n),
+	.branch (commit_branch),
+	.increment (increment_pc),
+	.newpc (alu_out),
 	// Outputs
-	.pc ()
+	.pc (pc)
 );
 
 instruction_rom the_instruction_rom(
 	// Inputs
-	.address (),
-	.clock (),
+	.address (pc),
+	.clock (clk),
 	// Outputs
-	.q ()
+	.q (instruction_out)
 );
 
 alu the_alu(
 	// Inputs
-	.add_sub (),
-	.set_low (),
-	.set_high (),
-	.operanda (),
-	.operandb (),
+	.add_sub (alu_add_sub),
+	.set_low (alu_set_low),
+	.set_high (alu_set_high),
+	.operanda (operanda),
+	.operandb (operandb),
 	// Outputs
-	.result ()
+	.result (alu_out)
 );
 
 temp_register the_temp_register(
 	// Inputs
-	.clk (),
-	.reset_n (),
-	.load (),
-	.increment (),
-	.decrement (),
-	.data (),
+	.clk (clk),
+	.reset_n (reset_n),
+	.load (load_temp),
+	.increment (increment_temp),
+	.decrement (decrement_temp),
+	.data (selected0),
 	// Outputs
-	.negative (),
-	.positive (),
-	.zero ()
+	.negative (temp_is_negative),
+	.positive (temp_is_positive),
+	.zero (temp_is_zero)
 );
 
 immediate_extractor the_immediate_extractor(
 	// Inputs
-	.instruction (),
-	.select (),
+	.instruction (instruction_out),
+	.select (select_immediate),
 	// Outputs
-	.immediate ()
+	.immediate (immediate_out)
 );
 
 write_address_select the_write_address_select(
 	// Inputs
-	.select (),
-	.reg_field0 (),
-	.reg_field1 (),
+	.select (select_write_address),
+	.reg_field0 (instruction_out[1:0]),
+	.reg_field1 (instruction_out[3:2]),
 	// Outputs
-	.write_address()
+	.write_address(write_address_out)
 );
 
 result_mux the_result_mux (
-	.select_result (),
-	.alu_result (),
-	.result ()
+	.select_result (result_mux_select),
+	.alu_result (alu_out),
+	.result (result_out)
 );
 
 branch_logic the_branch_logic(
 	// Inputs
 	.register0 (register0),
 	// Outputs
-	.branch ()
+	.branch (register0_is_zero)
 );
 
 endmodule
