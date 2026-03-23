@@ -17,7 +17,6 @@ assign mov = (instruction[7:4] == 4'b0111); 						//0111
 assign mova = (instruction[7:2] == 6'b110000); 			//110000
 assign movr = (instruction[7:2] == 6'b110001); 			//110001
 assign movrhs = (instruction[7:2] == 6'b110010); 	//110010
-assign pause = (instruction[7:0] == 8'b11111111); //11111111
-
+assign pause = (instruction[7:2] == 8'b111111); //11111111
 
 endmodule
