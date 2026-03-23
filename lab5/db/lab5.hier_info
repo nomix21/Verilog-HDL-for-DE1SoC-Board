@@ -1,0 +1,575 @@
+|datapath
+clk => clk.IN6
+reset_n => reset_n.IN4
+write_reg_file => write_reg_file.IN1
+result_mux_select => result_mux_select.IN1
+op1_mux_select[0] => op1_mux_select[0].IN1
+op1_mux_select[1] => op1_mux_select[1].IN1
+op2_mux_select[0] => op2_mux_select[0].IN1
+op2_mux_select[1] => op2_mux_select[1].IN1
+start_delay_counter => start_delay_counter.IN1
+enable_delay_counter => enable_delay_counter.IN1
+commit_branch => commit_branch.IN1
+increment_pc => increment_pc.IN1
+alu_add_sub => alu_add_sub.IN1
+alu_set_low => alu_set_low.IN1
+alu_set_high => alu_set_high.IN1
+load_temp => load_temp.IN1
+increment_temp => increment_temp.IN1
+decrement_temp => decrement_temp.IN1
+select_immediate[0] => select_immediate[0].IN1
+select_immediate[1] => select_immediate[1].IN1
+select_write_address[0] => select_write_address[0].IN1
+select_write_address[1] => select_write_address[1].IN1
+br <= decoder:the_decoder.br
+brz <= decoder:the_decoder.brz
+addi <= decoder:the_decoder.addi
+subi <= decoder:the_decoder.subi
+sr0 <= decoder:the_decoder.sr0
+srh0 <= decoder:the_decoder.srh0
+clr <= decoder:the_decoder.clr
+mov <= decoder:the_decoder.mov
+mova <= decoder:the_decoder.mova
+movr <= decoder:the_decoder.movr
+movrhs <= decoder:the_decoder.movrhs
+pause <= decoder:the_decoder.pause
+delay_done <= delay_counter:the_delay_counter.done
+temp_is_positive <= temp_register:the_temp_register.positive
+temp_is_negative <= temp_register:the_temp_register.negative
+temp_is_zero <= temp_register:the_temp_register.zero
+register0_is_zero <= branch_logic:the_branch_logic.branch
+stepper_signals[0] <= stepper_rom:the_stepper_rom.q
+stepper_signals[1] <= stepper_rom:the_stepper_rom.q
+stepper_signals[2] <= stepper_rom:the_stepper_rom.q
+stepper_signals[3] <= stepper_rom:the_stepper_rom.q
+
+
+|datapath|decoder:the_decoder
+instruction[2] => Equal1.IN5
+instruction[3] => Equal1.IN4
+instruction[4] => Equal1.IN3
+instruction[5] => Equal0.IN2
+instruction[5] => Equal1.IN1
+instruction[6] => Equal0.IN1
+instruction[6] => Equal1.IN0
+instruction[7] => Equal0.IN0
+instruction[7] => Equal1.IN2
+br <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+brz <= <GND>
+addi <= <GND>
+subi <= <GND>
+sr0 <= <GND>
+srh0 <= <GND>
+clr <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+mov <= <GND>
+mova <= <GND>
+movr <= <GND>
+movrhs <= <GND>
+pause <= <GND>
+
+
+|datapath|regfile:the_regfile
+clk => ~NO_FANOUT~
+reset_n => ~NO_FANOUT~
+write => ~NO_FANOUT~
+data[0] => ~NO_FANOUT~
+data[1] => ~NO_FANOUT~
+data[2] => ~NO_FANOUT~
+data[3] => ~NO_FANOUT~
+data[4] => ~NO_FANOUT~
+data[5] => ~NO_FANOUT~
+data[6] => ~NO_FANOUT~
+data[7] => ~NO_FANOUT~
+select0[0] => ~NO_FANOUT~
+select0[1] => ~NO_FANOUT~
+select1[0] => ~NO_FANOUT~
+select1[1] => ~NO_FANOUT~
+wr_select[0] => ~NO_FANOUT~
+wr_select[1] => ~NO_FANOUT~
+selected0[0] <= <GND>
+selected0[1] <= <GND>
+selected0[2] <= <GND>
+selected0[3] <= <GND>
+selected0[4] <= <GND>
+selected0[5] <= <GND>
+selected0[6] <= <GND>
+selected0[7] <= <GND>
+selected1[0] <= <GND>
+selected1[1] <= <GND>
+selected1[2] <= <GND>
+selected1[3] <= <GND>
+selected1[4] <= <GND>
+selected1[5] <= <GND>
+selected1[6] <= <GND>
+selected1[7] <= <GND>
+delay[0] <= <GND>
+delay[1] <= <GND>
+delay[2] <= <GND>
+delay[3] <= <GND>
+delay[4] <= <GND>
+delay[5] <= <GND>
+delay[6] <= <GND>
+delay[7] <= <GND>
+position[0] <= <GND>
+position[1] <= <GND>
+position[2] <= <GND>
+position[3] <= <GND>
+position[4] <= <GND>
+position[5] <= <GND>
+position[6] <= <GND>
+position[7] <= <GND>
+register0[0] <= <GND>
+register0[1] <= <GND>
+register0[2] <= <GND>
+register0[3] <= <GND>
+register0[4] <= <GND>
+register0[5] <= <GND>
+register0[6] <= <GND>
+register0[7] <= <GND>
+
+
+|datapath|op1_mux:the_op1_mux
+select[0] => ~NO_FANOUT~
+select[1] => ~NO_FANOUT~
+pc[0] => ~NO_FANOUT~
+pc[1] => ~NO_FANOUT~
+pc[2] => ~NO_FANOUT~
+pc[3] => ~NO_FANOUT~
+pc[4] => ~NO_FANOUT~
+pc[5] => ~NO_FANOUT~
+pc[6] => ~NO_FANOUT~
+pc[7] => ~NO_FANOUT~
+register[0] => ~NO_FANOUT~
+register[1] => ~NO_FANOUT~
+register[2] => ~NO_FANOUT~
+register[3] => ~NO_FANOUT~
+register[4] => ~NO_FANOUT~
+register[5] => ~NO_FANOUT~
+register[6] => ~NO_FANOUT~
+register[7] => ~NO_FANOUT~
+register0[0] => ~NO_FANOUT~
+register0[1] => ~NO_FANOUT~
+register0[2] => ~NO_FANOUT~
+register0[3] => ~NO_FANOUT~
+register0[4] => ~NO_FANOUT~
+register0[5] => ~NO_FANOUT~
+register0[6] => ~NO_FANOUT~
+register0[7] => ~NO_FANOUT~
+position[0] => ~NO_FANOUT~
+position[1] => ~NO_FANOUT~
+position[2] => ~NO_FANOUT~
+position[3] => ~NO_FANOUT~
+position[4] => ~NO_FANOUT~
+position[5] => ~NO_FANOUT~
+position[6] => ~NO_FANOUT~
+position[7] => ~NO_FANOUT~
+result[0] <= <GND>
+result[1] <= <GND>
+result[2] <= <GND>
+result[3] <= <GND>
+result[4] <= <GND>
+result[5] <= <GND>
+result[6] <= <GND>
+result[7] <= <GND>
+
+
+|datapath|op2_mux:the_op2_mux
+select[0] => ~NO_FANOUT~
+select[1] => ~NO_FANOUT~
+register[0] => ~NO_FANOUT~
+register[1] => ~NO_FANOUT~
+register[2] => ~NO_FANOUT~
+register[3] => ~NO_FANOUT~
+register[4] => ~NO_FANOUT~
+register[5] => ~NO_FANOUT~
+register[6] => ~NO_FANOUT~
+register[7] => ~NO_FANOUT~
+immediate[0] => ~NO_FANOUT~
+immediate[1] => ~NO_FANOUT~
+immediate[2] => ~NO_FANOUT~
+immediate[3] => ~NO_FANOUT~
+immediate[4] => ~NO_FANOUT~
+immediate[5] => ~NO_FANOUT~
+immediate[6] => ~NO_FANOUT~
+immediate[7] => ~NO_FANOUT~
+result[0] <= <GND>
+result[1] <= <GND>
+result[2] <= <GND>
+result[3] <= <GND>
+result[4] <= <GND>
+result[5] <= <GND>
+result[6] <= <GND>
+result[7] <= <GND>
+
+
+|datapath|delay_counter:the_delay_counter
+clk => ~NO_FANOUT~
+reset_n => ~NO_FANOUT~
+start => ~NO_FANOUT~
+enable => ~NO_FANOUT~
+delay[0] => ~NO_FANOUT~
+delay[1] => ~NO_FANOUT~
+delay[2] => ~NO_FANOUT~
+delay[3] => ~NO_FANOUT~
+delay[4] => ~NO_FANOUT~
+delay[5] => ~NO_FANOUT~
+delay[6] => ~NO_FANOUT~
+delay[7] => ~NO_FANOUT~
+done <= <GND>
+
+
+|datapath|stepper_rom:the_stepper_rom
+address[0] => address[0].IN1
+address[1] => address[1].IN1
+address[2] => address[2].IN1
+clock => clock.IN1
+q[0] <= altsyncram:altsyncram_component.q_a
+q[1] <= altsyncram:altsyncram_component.q_a
+q[2] <= altsyncram:altsyncram_component.q_a
+q[3] <= altsyncram:altsyncram_component.q_a
+
+
+|datapath|stepper_rom:the_stepper_rom|altsyncram:altsyncram_component
+wren_a => ~NO_FANOUT~
+rden_a => ~NO_FANOUT~
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => ~NO_FANOUT~
+data_a[1] => ~NO_FANOUT~
+data_a[2] => ~NO_FANOUT~
+data_a[3] => ~NO_FANOUT~
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_7jg1:auto_generated.address_a[0]
+address_a[1] => altsyncram_7jg1:auto_generated.address_a[1]
+address_a[2] => altsyncram_7jg1:auto_generated.address_a[2]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_7jg1:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_7jg1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_7jg1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_7jg1:auto_generated.q_a[2]
+q_a[3] <= altsyncram_7jg1:auto_generated.q_a[3]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|datapath|stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated
+address_a[0] => ram_block1a0.PORTAADDR
+address_a[0] => ram_block1a1.PORTAADDR
+address_a[0] => ram_block1a2.PORTAADDR
+address_a[0] => ram_block1a3.PORTAADDR
+address_a[1] => ram_block1a0.PORTAADDR1
+address_a[1] => ram_block1a1.PORTAADDR1
+address_a[1] => ram_block1a2.PORTAADDR1
+address_a[1] => ram_block1a3.PORTAADDR1
+address_a[2] => ram_block1a0.PORTAADDR2
+address_a[2] => ram_block1a1.PORTAADDR2
+address_a[2] => ram_block1a2.PORTAADDR2
+address_a[2] => ram_block1a3.PORTAADDR2
+clock0 => ram_block1a0.CLK0
+clock0 => ram_block1a1.CLK0
+clock0 => ram_block1a2.CLK0
+clock0 => ram_block1a3.CLK0
+q_a[0] <= ram_block1a0.PORTADATAOUT
+q_a[1] <= ram_block1a1.PORTADATAOUT
+q_a[2] <= ram_block1a2.PORTADATAOUT
+q_a[3] <= ram_block1a3.PORTADATAOUT
+
+
+|datapath|pc:the_pc
+clk => ~NO_FANOUT~
+reset_n => ~NO_FANOUT~
+branch => ~NO_FANOUT~
+increment => ~NO_FANOUT~
+newpc[0] => ~NO_FANOUT~
+newpc[1] => ~NO_FANOUT~
+newpc[2] => ~NO_FANOUT~
+newpc[3] => ~NO_FANOUT~
+newpc[4] => ~NO_FANOUT~
+newpc[5] => ~NO_FANOUT~
+newpc[6] => ~NO_FANOUT~
+newpc[7] => ~NO_FANOUT~
+pc[0] <= <GND>
+pc[1] <= <GND>
+pc[2] <= <GND>
+pc[3] <= <GND>
+pc[4] <= <GND>
+pc[5] <= <GND>
+pc[6] <= <GND>
+pc[7] <= <GND>
+
+
+|datapath|instruction_rom:the_instruction_rom
+address[0] => address[0].IN1
+address[1] => address[1].IN1
+address[2] => address[2].IN1
+address[3] => address[3].IN1
+address[4] => address[4].IN1
+address[5] => address[5].IN1
+address[6] => address[6].IN1
+address[7] => address[7].IN1
+clock => clock.IN1
+q[0] <= altsyncram:altsyncram_component.q_a
+q[1] <= altsyncram:altsyncram_component.q_a
+q[2] <= altsyncram:altsyncram_component.q_a
+q[3] <= altsyncram:altsyncram_component.q_a
+q[4] <= altsyncram:altsyncram_component.q_a
+q[5] <= altsyncram:altsyncram_component.q_a
+q[6] <= altsyncram:altsyncram_component.q_a
+q[7] <= altsyncram:altsyncram_component.q_a
+
+
+|datapath|instruction_rom:the_instruction_rom|altsyncram:altsyncram_component
+wren_a => ~NO_FANOUT~
+rden_a => ~NO_FANOUT~
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => ~NO_FANOUT~
+data_a[1] => ~NO_FANOUT~
+data_a[2] => ~NO_FANOUT~
+data_a[3] => ~NO_FANOUT~
+data_a[4] => ~NO_FANOUT~
+data_a[5] => ~NO_FANOUT~
+data_a[6] => ~NO_FANOUT~
+data_a[7] => ~NO_FANOUT~
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_k4h1:auto_generated.address_a[0]
+address_a[1] => altsyncram_k4h1:auto_generated.address_a[1]
+address_a[2] => altsyncram_k4h1:auto_generated.address_a[2]
+address_a[3] => altsyncram_k4h1:auto_generated.address_a[3]
+address_a[4] => altsyncram_k4h1:auto_generated.address_a[4]
+address_a[5] => altsyncram_k4h1:auto_generated.address_a[5]
+address_a[6] => altsyncram_k4h1:auto_generated.address_a[6]
+address_a[7] => altsyncram_k4h1:auto_generated.address_a[7]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_k4h1:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_k4h1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_k4h1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_k4h1:auto_generated.q_a[2]
+q_a[3] <= altsyncram_k4h1:auto_generated.q_a[3]
+q_a[4] <= altsyncram_k4h1:auto_generated.q_a[4]
+q_a[5] <= altsyncram_k4h1:auto_generated.q_a[5]
+q_a[6] <= altsyncram_k4h1:auto_generated.q_a[6]
+q_a[7] <= altsyncram_k4h1:auto_generated.q_a[7]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|datapath|instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated
+address_a[0] => ram_block1a0.PORTAADDR
+address_a[0] => ram_block1a1.PORTAADDR
+address_a[0] => ram_block1a2.PORTAADDR
+address_a[0] => ram_block1a3.PORTAADDR
+address_a[0] => ram_block1a4.PORTAADDR
+address_a[0] => ram_block1a5.PORTAADDR
+address_a[0] => ram_block1a6.PORTAADDR
+address_a[0] => ram_block1a7.PORTAADDR
+address_a[1] => ram_block1a0.PORTAADDR1
+address_a[1] => ram_block1a1.PORTAADDR1
+address_a[1] => ram_block1a2.PORTAADDR1
+address_a[1] => ram_block1a3.PORTAADDR1
+address_a[1] => ram_block1a4.PORTAADDR1
+address_a[1] => ram_block1a5.PORTAADDR1
+address_a[1] => ram_block1a6.PORTAADDR1
+address_a[1] => ram_block1a7.PORTAADDR1
+address_a[2] => ram_block1a0.PORTAADDR2
+address_a[2] => ram_block1a1.PORTAADDR2
+address_a[2] => ram_block1a2.PORTAADDR2
+address_a[2] => ram_block1a3.PORTAADDR2
+address_a[2] => ram_block1a4.PORTAADDR2
+address_a[2] => ram_block1a5.PORTAADDR2
+address_a[2] => ram_block1a6.PORTAADDR2
+address_a[2] => ram_block1a7.PORTAADDR2
+address_a[3] => ram_block1a0.PORTAADDR3
+address_a[3] => ram_block1a1.PORTAADDR3
+address_a[3] => ram_block1a2.PORTAADDR3
+address_a[3] => ram_block1a3.PORTAADDR3
+address_a[3] => ram_block1a4.PORTAADDR3
+address_a[3] => ram_block1a5.PORTAADDR3
+address_a[3] => ram_block1a6.PORTAADDR3
+address_a[3] => ram_block1a7.PORTAADDR3
+address_a[4] => ram_block1a0.PORTAADDR4
+address_a[4] => ram_block1a1.PORTAADDR4
+address_a[4] => ram_block1a2.PORTAADDR4
+address_a[4] => ram_block1a3.PORTAADDR4
+address_a[4] => ram_block1a4.PORTAADDR4
+address_a[4] => ram_block1a5.PORTAADDR4
+address_a[4] => ram_block1a6.PORTAADDR4
+address_a[4] => ram_block1a7.PORTAADDR4
+address_a[5] => ram_block1a0.PORTAADDR5
+address_a[5] => ram_block1a1.PORTAADDR5
+address_a[5] => ram_block1a2.PORTAADDR5
+address_a[5] => ram_block1a3.PORTAADDR5
+address_a[5] => ram_block1a4.PORTAADDR5
+address_a[5] => ram_block1a5.PORTAADDR5
+address_a[5] => ram_block1a6.PORTAADDR5
+address_a[5] => ram_block1a7.PORTAADDR5
+address_a[6] => ram_block1a0.PORTAADDR6
+address_a[6] => ram_block1a1.PORTAADDR6
+address_a[6] => ram_block1a2.PORTAADDR6
+address_a[6] => ram_block1a3.PORTAADDR6
+address_a[6] => ram_block1a4.PORTAADDR6
+address_a[6] => ram_block1a5.PORTAADDR6
+address_a[6] => ram_block1a6.PORTAADDR6
+address_a[6] => ram_block1a7.PORTAADDR6
+address_a[7] => ram_block1a0.PORTAADDR7
+address_a[7] => ram_block1a1.PORTAADDR7
+address_a[7] => ram_block1a2.PORTAADDR7
+address_a[7] => ram_block1a3.PORTAADDR7
+address_a[7] => ram_block1a4.PORTAADDR7
+address_a[7] => ram_block1a5.PORTAADDR7
+address_a[7] => ram_block1a6.PORTAADDR7
+address_a[7] => ram_block1a7.PORTAADDR7
+clock0 => ram_block1a0.CLK0
+clock0 => ram_block1a1.CLK0
+clock0 => ram_block1a2.CLK0
+clock0 => ram_block1a3.CLK0
+clock0 => ram_block1a4.CLK0
+clock0 => ram_block1a5.CLK0
+clock0 => ram_block1a6.CLK0
+clock0 => ram_block1a7.CLK0
+q_a[0] <= ram_block1a0.PORTADATAOUT
+q_a[1] <= ram_block1a1.PORTADATAOUT
+q_a[2] <= ram_block1a2.PORTADATAOUT
+q_a[3] <= ram_block1a3.PORTADATAOUT
+q_a[4] <= ram_block1a4.PORTADATAOUT
+q_a[5] <= ram_block1a5.PORTADATAOUT
+q_a[6] <= ram_block1a6.PORTADATAOUT
+q_a[7] <= ram_block1a7.PORTADATAOUT
+
+
+|datapath|alu:the_alu
+add_sub => ~NO_FANOUT~
+set_low => ~NO_FANOUT~
+set_high => ~NO_FANOUT~
+operanda[0] => ~NO_FANOUT~
+operanda[1] => ~NO_FANOUT~
+operanda[2] => ~NO_FANOUT~
+operanda[3] => ~NO_FANOUT~
+operanda[4] => ~NO_FANOUT~
+operanda[5] => ~NO_FANOUT~
+operanda[6] => ~NO_FANOUT~
+operanda[7] => ~NO_FANOUT~
+operandb[0] => ~NO_FANOUT~
+operandb[1] => ~NO_FANOUT~
+operandb[2] => ~NO_FANOUT~
+operandb[3] => ~NO_FANOUT~
+operandb[4] => ~NO_FANOUT~
+operandb[5] => ~NO_FANOUT~
+operandb[6] => ~NO_FANOUT~
+operandb[7] => ~NO_FANOUT~
+result[0] <= <GND>
+result[1] <= <GND>
+result[2] <= <GND>
+result[3] <= <GND>
+result[4] <= <GND>
+result[5] <= <GND>
+result[6] <= <GND>
+result[7] <= <GND>
+
+
+|datapath|temp_register:the_temp_register
+clk => ~NO_FANOUT~
+reset_n => ~NO_FANOUT~
+load => ~NO_FANOUT~
+increment => ~NO_FANOUT~
+decrement => ~NO_FANOUT~
+data[0] => ~NO_FANOUT~
+data[1] => ~NO_FANOUT~
+data[2] => ~NO_FANOUT~
+data[3] => ~NO_FANOUT~
+data[4] => ~NO_FANOUT~
+data[5] => ~NO_FANOUT~
+data[6] => ~NO_FANOUT~
+data[7] => ~NO_FANOUT~
+negative <= <GND>
+positive <= <GND>
+zero <= <GND>
+
+
+|datapath|immediate_extractor:the_immediate_extractor
+instruction[0] => ~NO_FANOUT~
+instruction[1] => ~NO_FANOUT~
+instruction[2] => ~NO_FANOUT~
+instruction[3] => ~NO_FANOUT~
+instruction[4] => ~NO_FANOUT~
+select[0] => ~NO_FANOUT~
+select[1] => ~NO_FANOUT~
+immediate[0] <= <GND>
+immediate[1] <= <GND>
+immediate[2] <= <GND>
+immediate[3] <= <GND>
+immediate[4] <= <GND>
+immediate[5] <= <GND>
+immediate[6] <= <GND>
+immediate[7] <= <GND>
+
+
+|datapath|write_address_select:the_write_address_select
+select[0] => ~NO_FANOUT~
+select[1] => ~NO_FANOUT~
+reg_field0[0] => ~NO_FANOUT~
+reg_field0[1] => ~NO_FANOUT~
+reg_field1[0] => ~NO_FANOUT~
+reg_field1[1] => ~NO_FANOUT~
+write_address[0] <= <GND>
+write_address[1] <= <GND>
+
+
+|datapath|result_mux:the_result_mux
+select_result => ~NO_FANOUT~
+alu_result[0] => ~NO_FANOUT~
+alu_result[1] => ~NO_FANOUT~
+alu_result[2] => ~NO_FANOUT~
+alu_result[3] => ~NO_FANOUT~
+alu_result[4] => ~NO_FANOUT~
+alu_result[5] => ~NO_FANOUT~
+alu_result[6] => ~NO_FANOUT~
+alu_result[7] => ~NO_FANOUT~
+result[0] <= <GND>
+result[1] <= <GND>
+result[2] <= <GND>
+result[3] <= <GND>
+result[4] <= <GND>
+result[5] <= <GND>
+result[6] <= <GND>
+result[7] <= <GND>
+
+
+|datapath|branch_logic:the_branch_logic
+register0[0] => ~NO_FANOUT~
+register0[1] => ~NO_FANOUT~
+register0[2] => ~NO_FANOUT~
+register0[3] => ~NO_FANOUT~
+register0[4] => ~NO_FANOUT~
+register0[5] => ~NO_FANOUT~
+register0[6] => ~NO_FANOUT~
+register0[7] => ~NO_FANOUT~
+branch <= <GND>
+
+

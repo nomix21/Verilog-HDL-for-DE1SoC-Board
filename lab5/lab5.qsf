@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY lab5
+set_global_assignment -name TOP_LEVEL_ENTITY datapath
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:38:45  MARCH 19, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Standard Edition"
@@ -877,9 +877,6 @@ set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_WE_N -e
 set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RESET_N -entity DE1_SoC
 set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_P -entity DE1_SoC
 set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_N -entity DE1_SoC
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name MIF_FILE instruction_rom.mif
 set_global_assignment -name VERILOG_FILE instruction_rom.v
 set_global_assignment -name VERILOG_FILE write_address_select.v
@@ -889,7 +886,6 @@ set_global_assignment -name VERILOG_FILE regfile.v
 set_global_assignment -name VERILOG_FILE pc.v
 set_global_assignment -name VERILOG_FILE op2_mux.v
 set_global_assignment -name VERILOG_FILE op1_mux.v
-set_global_assignment -name VERILOG_FILE lab5.v
 set_global_assignment -name VERILOG_FILE immediate_extractor.v
 set_global_assignment -name VERILOG_FILE delay_counter.v
 set_global_assignment -name VERILOG_FILE decoder.v
@@ -899,4 +895,7 @@ set_global_assignment -name VERILOG_FILE branch_logic.v
 set_global_assignment -name VERILOG_FILE alu.v
 set_global_assignment -name MIF_FILE stepper_rom.mif
 set_global_assignment -name QIP_FILE stepper_rom.qip
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

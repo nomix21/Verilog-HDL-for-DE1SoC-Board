@@ -1,5 +1,5 @@
 Flow report for lab5
-Mon Mar 23 12:11:01 2026
+Mon Mar 23 12:13:41 2026
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
 
 
@@ -38,24 +38,29 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+-----------------------------+----------------------------------------------------+
-; Flow Status                 ; Flow Failed - Mon Mar 23 12:11:01 2026             ;
-; Quartus Prime Version       ; 23.1std.0 Build 991 11/28/2023 SC Standard Edition ;
-; Revision Name               ; lab5                                               ;
-; Top-level Entity Name       ; lab5                                               ;
-; Family                      ; Cyclone V                                          ;
-; Device                      ; 5CSEMA5F31C6                                       ;
-; Timing Models               ; Final                                              ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                          ;
-; Total registers             ; N/A until Partition Merge                          ;
-; Total pins                  ; N/A until Partition Merge                          ;
-; Total virtual pins          ; N/A until Partition Merge                          ;
-; Total block memory bits     ; N/A until Partition Merge                          ;
-; Total PLLs                  ; N/A until Partition Merge                          ;
-; Total DLLs                  ; N/A until Partition Merge                          ;
-+-----------------------------+----------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Flow Summary                                                                         ;
++---------------------------------+----------------------------------------------------+
+; Flow Status                     ; Successful - Mon Mar 23 12:13:41 2026              ;
+; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Standard Edition ;
+; Revision Name                   ; lab5                                               ;
+; Top-level Entity Name           ; datapath                                           ;
+; Family                          ; Cyclone V                                          ;
+; Device                          ; 5CSEMA5F31C6                                       ;
+; Timing Models                   ; Final                                              ;
+; Logic utilization (in ALMs)     ; N/A                                                ;
+; Total registers                 ; 0                                                  ;
+; Total pins                      ; 43                                                 ;
+; Total virtual pins              ; 0                                                  ;
+; Total block memory bits         ; 20                                                 ;
+; Total DSP Blocks                ; 0                                                  ;
+; Total HSSI RX PCSs              ; 0                                                  ;
+; Total HSSI PMA RX Deserializers ; 0                                                  ;
+; Total HSSI TX PCSs              ; 0                                                  ;
+; Total HSSI PMA TX Serializers   ; 0                                                  ;
+; Total PLLs                      ; 0                                                  ;
+; Total DLLs                      ; 0                                                  ;
++---------------------------------+----------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -63,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/23/2026 12:10:56 ;
+; Start date & time ; 03/23/2026 12:13:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab5                ;
 +-------------------+---------------------+
@@ -74,15 +79,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589202.177428225653664         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 10995770589202.177428241559360         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; datapath    ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; datapath    ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; datapath    ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; datapath                               ; lab5          ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -91,8 +97,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4800 MB             ; 00:00:13                           ;
-; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:13                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4894 MB             ; 00:00:13                           ;
+; Total                ; 00:00:06     ; --                      ; --                  ; 00:00:13                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
