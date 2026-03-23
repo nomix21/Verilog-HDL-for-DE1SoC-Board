@@ -45,7 +45,7 @@ assign done = done_reg; //assign done to the least significant bit of done_reg
           else done_reg <= 0;
         end
 
-        else d <= 8'b00000000; //default case
+        else done_reg <= 8'b00000000; //default case
     end
 
 endmodule
