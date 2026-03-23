@@ -33,6 +33,7 @@ wire [7:0] w_operandb /*synthesis keep*/;
 wire [7:0] w_immediate_out /*synthesis keep*/;
 wire [3:0] stepper_out /*synthesis keep*/;
 wire [7:0] w_result_out /*synthesis keep*/;
+
 decoder the_decoder (
 	// Inputs
 	.instruction (w_instruction_out[7:2]),
