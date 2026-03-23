@@ -10,7 +10,6 @@
 //To test part of the memory, for example, to test the first 1/10 of the memory:
 //#define Testing_MAXNUM_WORDS   SDRAM_CONTROLLER_0_SPAN/20
 
-
 int main() {
 	printf("Hello from MT3TB4 Group 3!\n\n\n");
 	printf("Testing %d  words out of Maximum %d words On SDRAM......\n\n\n", Testing_MAXNUM_WORDS, SDRAM_MAXNUM_WORDS);
@@ -46,6 +45,7 @@ int main() {
 			char_err_num++;
 		}
 	}
+
 	printf("\nTesting  Char: the total numbers of error is : %i\n", char_err_num);
 
 
@@ -57,14 +57,13 @@ int main() {
 	}
 
 	printf(" \n testing short......\n");
-	for (i=0; i<Testing_MAXNUM_WORDS; i++) {
-  if(*(short*) (BASE+i*2) != i % 32767) {
+	for (i = 1; i <= Testing_MAXNUM_WORDS; i++) {
+  if(*(short*) (BASE + i * 2) != i % 32767) {
    short_err_num++;
   }; 
  }
 
-	printf("\nTesting Short: the total numbers of error is : %i\n",
-			short_err_num);
+	printf("\nTesting Short: the total numbers of error is : %i\n", hort_err_num);
 
 	//----------------TEST INT    -----------------------------------
 
@@ -73,10 +72,9 @@ int main() {
 		*(int*) (BASE + i * 4) = i; // int, use 4 bytes
 	}
 
-
 	printf(" \n testing integer......\n");
-for (i=0; i<Testing_MAXNUM_WORDS/2; i++) {
- if(*(int*)(BASE+i*4)!=i){
+for (i = 1; i <= Testing_MAXNUM_WORDS/2; i++) {
+ if(*(int*) (BASE + i * 4) != i){
   int_err_num++;
  };
 }

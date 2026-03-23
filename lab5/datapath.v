@@ -129,8 +129,8 @@ alu the_alu(
 
 temp_register the_temp_register(
 	// Inputs
-	.clk (),
-	.reset_n (),
+	.clk (clk),
+	.reset_n (reset_n),
 	.load (),
 	.increment (),
 	.decrement (),
@@ -144,14 +144,14 @@ temp_register the_temp_register(
 immediate_extractor the_immediate_extractor(
 	// Inputs
 	.instruction (),
-	.select (),
+	.select (select_immmediate),
 	// Outputs
 	.immediate ()
 );
 
 write_address_select the_write_address_select(
 	// Inputs
-	.select (),
+	.select (select_write_address),
 	.reg_field0 (),
 	.reg_field1 (),
 	// Outputs
@@ -159,16 +159,16 @@ write_address_select the_write_address_select(
 );
 
 result_mux the_result_mux (
-	.select_result (),
-	.alu_result (),
-	.result ()
+	.select_result (result_mux_select),
+	.alu_result (w_alu_out),
+	.result (w_result_mux)
 );
 
 branch_logic the_branch_logic(
 	// Inputs
 	.register0 (register0),
 	// Outputs
-	.branch ()
+	.branch (register0_is_zero)
 );
 
 endmodule
