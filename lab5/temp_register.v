@@ -20,7 +20,7 @@ always @ (posedge clk) begin
 		// When the increment temp control signal asserted, increments by 1 the internal counter.
 		else if (increment) counter <= counter + 8'sd1;
 		// When the decrement temp control signal asserted, decrements  by 1 the internal counter.
-		else if (increment) counter <= counter - 8'sd1;
+		else if (decrement) counter <= counter - 8'sd1;
 end
 
 // status outputs, signals are forwarded to the control unit for decision-making purposes
