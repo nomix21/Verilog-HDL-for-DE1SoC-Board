@@ -13,6 +13,4 @@ module op2_mux (input [1:0] select, input [7:0] register, immediate,
 		endcase
 	end
 				
-
-				
 endmodule
