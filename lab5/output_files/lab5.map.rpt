@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab5
-Mon Mar 23 12:13:41 2026
+Fri Mar 27 10:07:08 2026
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
 
 
@@ -13,22 +13,12 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis IP Cores Summary
- 10. General Register Statistics
- 11. Source assignments for Top-level Entity: |datapath
- 12. Source assignments for stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated
- 13. Source assignments for instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated
- 14. Parameter Settings for User Entity Instance: delay_counter:the_delay_counter
- 15. Parameter Settings for User Entity Instance: stepper_rom:the_stepper_rom|altsyncram:altsyncram_component
- 16. Parameter Settings for User Entity Instance: pc:the_pc
- 17. Parameter Settings for User Entity Instance: instruction_rom:the_instruction_rom|altsyncram:altsyncram_component
- 18. altsyncram Parameter Settings by Entity Instance
- 19. Port Connectivity Checks: "immediate_extractor:the_immediate_extractor"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
- 23. Analysis & Synthesis Suppressed Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -55,16 +45,16 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +---------------------------------+----------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Mar 23 12:13:41 2026              ;
+; Analysis & Synthesis Status     ; Successful - Fri Mar 27 10:07:08 2026              ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Standard Edition ;
 ; Revision Name                   ; lab5                                               ;
-; Top-level Entity Name           ; datapath                                           ;
+; Top-level Entity Name           ; immediate_extractor                                ;
 ; Family                          ; Cyclone V                                          ;
 ; Logic utilization (in ALMs)     ; N/A                                                ;
 ; Total registers                 ; 0                                                  ;
-; Total pins                      ; 43                                                 ;
+; Total pins                      ; 15                                                 ;
 ; Total virtual pins              ; 0                                                  ;
-; Total block memory bits         ; 20                                                 ;
+; Total block memory bits         ; 0                                                  ;
 ; Total DSP Blocks                ; 0                                                  ;
 ; Total HSSI RX PCSs              ; 0                                                  ;
 ; Total HSSI PMA RX Deserializers ; 0                                                  ;
@@ -75,91 +65,91 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------+----------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                          ; Setting            ; Default Value      ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; datapath           ; lab5               ;
-; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
-; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
-; Enable compact report table                                                     ; Off                ; Off                ;
-; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
-; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
-; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
-; Preserve fewer node names                                                       ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
-; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                        ; Auto               ; Auto               ;
-; Safe State Machine                                                              ; Off                ; Off                ;
-; Extract Verilog State Machines                                                  ; On                 ; On                 ;
-; Extract VHDL State Machines                                                     ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
-; Parallel Synthesis                                                              ; On                 ; On                 ;
-; DSP Block Balancing                                                             ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                              ; On                 ; On                 ;
-; Power-Up Don't Care                                                             ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
-; Remove Duplicate Registers                                                      ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
-; Optimization Technique                                                          ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                              ; 70                 ; 70                 ;
-; Auto Carry Chains                                                               ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
-; Auto ROM Replacement                                                            ; On                 ; On                 ;
-; Auto RAM Replacement                                                            ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
-; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
-; Strict RAM Replacement                                                          ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                           ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
-; Report Parameter Settings                                                       ; On                 ; On                 ;
-; Report Source Assignments                                                       ; On                 ; On                 ;
-; Report Connectivity Checks                                                      ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
-; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
-; HDL message level                                                               ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
-; Clock MUX Protection                                                            ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
-; Block Design Naming                                                             ; Auto               ; Auto               ;
-; SDC constraint protection                                                       ; Off                ; Off                ;
-; Synthesis Effort                                                                ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
-; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
-; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                              ;
++---------------------------------------------------------------------------------+---------------------+--------------------+
+; Option                                                                          ; Setting             ; Default Value      ;
++---------------------------------------------------------------------------------+---------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6        ;                    ;
+; Top-level entity name                                                           ; immediate_extractor ; lab5               ;
+; Family name                                                                     ; Cyclone V           ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                 ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                  ; On                 ;
+; Enable compact report table                                                     ; Off                 ; Off                ;
+; Restructure Multiplexers                                                        ; Auto                ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                 ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                 ; Off                ;
+; Preserve fewer node names                                                       ; On                  ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable              ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001        ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993           ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto                ; Auto               ;
+; Safe State Machine                                                              ; Off                 ; Off                ;
+; Extract Verilog State Machines                                                  ; On                  ; On                 ;
+; Extract VHDL State Machines                                                     ; On                  ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                 ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000                ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                 ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                  ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                  ; On                 ;
+; Parallel Synthesis                                                              ; On                  ; On                 ;
+; DSP Block Balancing                                                             ; Auto                ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                  ; On                 ;
+; Power-Up Don't Care                                                             ; On                  ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                 ; Off                ;
+; Remove Duplicate Registers                                                      ; On                  ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                 ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                 ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                 ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                 ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                 ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                  ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                 ; Off                ;
+; Optimization Technique                                                          ; Balanced            ; Balanced           ;
+; Carry Chain Length                                                              ; 70                  ; 70                 ;
+; Auto Carry Chains                                                               ; On                  ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                  ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                 ; Off                ;
+; Auto ROM Replacement                                                            ; On                  ; On                 ;
+; Auto RAM Replacement                                                            ; On                  ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                  ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto                ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                  ; On                 ;
+; Strict RAM Replacement                                                          ; Off                 ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                  ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                 ; Off                ;
+; Auto Resource Sharing                                                           ; Off                 ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                 ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                 ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                 ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                  ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                 ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                  ; On                 ;
+; Report Parameter Settings                                                       ; On                  ; On                 ;
+; Report Source Assignments                                                       ; On                  ; On                 ;
+; Report Connectivity Checks                                                      ; On                  ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                 ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                   ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation  ; Normal compilation ;
+; HDL message level                                                               ; Level2              ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                 ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                 ; 100                ;
+; Clock MUX Protection                                                            ; On                  ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                 ; Off                ;
+; Block Design Naming                                                             ; Auto                ; Auto               ;
+; SDC constraint protection                                                       ; Off                 ; Off                ;
+; Synthesis Effort                                                                ; Auto                ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                  ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                 ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium              ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                  ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                  ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                 ; Off                ;
++---------------------------------------------------------------------------------+---------------------+--------------------+
 
 
 +------------------------------------------+
@@ -178,105 +168,50 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                               ;
-+----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+---------+
-; instruction_rom.mif              ; yes             ; User Memory Initialization File  ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/instruction_rom.mif    ;         ;
-; instruction_rom.v                ; yes             ; User Wizard-Generated File       ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/instruction_rom.v      ;         ;
-; write_address_select.v           ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/write_address_select.v ;         ;
-; temp_register.v                  ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/temp_register.v        ;         ;
-; result_mux.v                     ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/result_mux.v           ;         ;
-; regfile.v                        ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v              ;         ;
-; pc.v                             ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/pc.v                   ;         ;
-; op2_mux.v                        ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/op2_mux.v              ;         ;
-; op1_mux.v                        ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/op1_mux.v              ;         ;
-; immediate_extractor.v            ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/immediate_extractor.v  ;         ;
-; delay_counter.v                  ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/delay_counter.v        ;         ;
-; decoder.v                        ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v              ;         ;
-; datapath.v                       ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v             ;         ;
-; branch_logic.v                   ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/branch_logic.v         ;         ;
-; alu.v                            ; yes             ; User Verilog HDL File            ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/alu.v                  ;         ;
-; stepper_rom.mif                  ; yes             ; User Memory Initialization File  ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/stepper_rom.mif        ;         ;
-; stepper_rom.v                    ; yes             ; User Wizard-Generated File       ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/stepper_rom.v          ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc         ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                   ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/lpm_decode.inc                ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/aglobal231.inc                ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc                 ;         ;
-; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/altrom.inc                    ;         ;
-; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/altram.inc                    ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga/23.1std/quartus/libraries/megafunctions/altdpram.inc                  ;         ;
-; db/altsyncram_7jg1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_7jg1.tdf ;         ;
-; db/altsyncram_k4h1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_k4h1.tdf ;         ;
-+----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------+---------+
+; immediate_extractor.v            ; yes             ; User Verilog HDL File  ; C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/immediate_extractor.v ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 6         ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 10        ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 1         ;
-;     -- 5 input functions                    ; 0         ;
-;     -- 4 input functions                    ; 0         ;
-;     -- <=3 input functions                  ; 9         ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 43        ;
-; Total MLAB memory bits                      ; 0         ;
-; Total block memory bits                     ; 20        ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 10        ;
-; Total fan-out                               ; 84        ;
-; Average fan-out                             ; 0.79      ;
-+---------------------------------------------+-----------+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimate of Logic utilization (ALMs needed) ; 4               ;
+;                                             ;                 ;
+; Combinational ALUT usage for logic          ; 8               ;
+;     -- 7 input functions                    ; 0               ;
+;     -- 6 input functions                    ; 0               ;
+;     -- 5 input functions                    ; 2               ;
+;     -- 4 input functions                    ; 2               ;
+;     -- <=3 input functions                  ; 4               ;
+;                                             ;                 ;
+; Dedicated logic registers                   ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 15              ;
+;                                             ;                 ;
+; Total DSP Blocks                            ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; select[0]~input ;
+; Maximum fan-out                             ; 8               ;
+; Total fan-out                               ; 53              ;
+; Average fan-out                             ; 1.39            ;
++---------------------------------------------+-----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Entity Name     ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |datapath                                 ; 10 (8)              ; 0 (0)                     ; 20                ; 0          ; 43   ; 0            ; |datapath                                                                                                    ; datapath        ; work         ;
-;    |decoder:the_decoder|                  ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|decoder:the_decoder                                                                                ; decoder         ; work         ;
-;    |instruction_rom:the_instruction_rom|  ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |datapath|instruction_rom:the_instruction_rom                                                                ; instruction_rom ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |datapath|instruction_rom:the_instruction_rom|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
-;          |altsyncram_k4h1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |datapath|instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated ; altsyncram_k4h1 ; work         ;
-;    |stepper_rom:the_stepper_rom|          ; 0 (0)               ; 0 (0)                     ; 8                 ; 0          ; 0    ; 0            ; |datapath|stepper_rom:the_stepper_rom                                                                        ; stepper_rom     ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8                 ; 0          ; 0    ; 0            ; |datapath|stepper_rom:the_stepper_rom|altsyncram:altsyncram_component                                        ; altsyncram      ; work         ;
-;          |altsyncram_7jg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8                 ; 0          ; 0    ; 0            ; |datapath|stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated         ; altsyncram_7jg1 ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+-----------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Entity Name         ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------+---------------------+--------------+
+; |immediate_extractor       ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 15   ; 0            ; |immediate_extractor ; immediate_extractor ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                     ;
-+---------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+---------------------+
-; Name                                                                                                          ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                 ;
-+---------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+---------------------+
-; instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 8            ; --           ; --           ; 2048 ; instruction_rom.mif ;
-; stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated|ALTSYNCRAM         ; AUTO ; ROM  ; 8            ; 4            ; --           ; --           ; 32   ; stepper_rom.mif     ;
-+---------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+---------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                   ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                       ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------+-----------------+
-; Altera ; ROM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |datapath|stepper_rom:the_stepper_rom ; stepper_rom.v   ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------+-----------------+
 
 
 +------------------------------------------------------+
@@ -294,408 +229,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------+
-; Source assignments for Top-level Entity: |datapath                   ;
-+------------------------------+-------+------+------------------------+
-; Assignment                   ; Value ; From ; To                     ;
-+------------------------------+-------+------+------------------------+
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[7]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[7]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[6]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[6]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[5]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[5]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[4]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[4]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[3]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[3]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[2]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[2]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[1]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[1]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_position[0]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_position[0]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[7]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[7]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[6]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[6]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[5]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[5]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[4]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[4]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[3]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[3]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[2]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[2]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[1]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[1]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_delay[0]             ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_delay[0]             ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[7]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[7]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[6]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[6]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[5]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[5]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[4]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[4]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[3]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[3]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[2]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[2]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[1]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[1]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_register0[0]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_register0[0]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[7]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[7]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[6]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[6]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[5]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[5]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[4]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[4]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[3]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[3]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[2]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[2]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[1]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[1]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_pc[0]                ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_pc[0]                ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[7]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[7]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[6]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[6]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[5]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[5]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[4]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[4]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[3]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[3]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[2]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[2]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[1]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[1]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_alu_out[0]           ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_alu_out[0]           ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[7]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[7]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[6]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[6]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[5]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[5]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[4]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[4]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[3]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[3]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[2]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[2]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[1]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[1]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_instruction_out[0]   ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_instruction_out[0]   ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_write_address_out[1] ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_write_address_out[1] ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_write_address_out[0] ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_write_address_out[0] ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[7]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[7]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[6]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[6]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[5]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[5]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[4]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[4]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[3]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[3]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[2]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[2]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[1]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[1]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected0[0]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected0[0]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[7]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[7]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[6]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[6]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[5]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[5]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[4]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[4]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[3]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[3]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[2]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[2]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[1]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[1]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_selected1[0]         ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_selected1[0]         ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[7]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[7]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[6]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[6]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[5]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[5]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[4]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[4]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[3]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[3]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[2]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[2]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[1]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[1]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operanda[0]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operanda[0]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[7]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[7]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[6]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[6]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[5]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[5]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[4]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[4]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[3]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[3]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[2]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[2]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[1]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[1]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_operandb[0]          ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_operandb[0]          ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[7]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[7]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[6]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[6]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[5]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[5]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[4]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[4]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[3]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[3]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[2]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[2]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[1]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[1]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_immediate_out[0]     ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_immediate_out[0]     ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[7]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[7]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[6]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[6]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[5]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[5]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[4]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[4]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[3]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[3]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[2]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[2]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[1]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[1]        ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; w_result_out[0]        ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; w_result_out[0]        ;
-+------------------------------+-------+------+------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------+
-; Source assignments for stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                  ;
-+---------------------------------+--------------------+------+-----------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                   ;
-+---------------------------------+--------------------+------+-----------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                          ;
-+---------------------------------+--------------------+------+-------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                           ;
-+---------------------------------+--------------------+------+-------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: delay_counter:the_delay_counter ;
-+----------------+----------------------+--------------------------------------+
-; Parameter Name ; Value                ; Type                                 ;
-+----------------+----------------------+--------------------------------------+
-; BASIC_PERIOD   ; 01111010000100100000 ; Unsigned Binary                      ;
-+----------------+----------------------+--------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: stepper_rom:the_stepper_rom|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+----------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                         ;
-+------------------------------------+----------------------+----------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                      ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                   ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                 ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                 ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                               ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                      ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                      ;
-; WIDTH_A                            ; 4                    ; Signed Integer                               ;
-; WIDTHAD_A                          ; 3                    ; Signed Integer                               ;
-; NUMWORDS_A                         ; 8                    ; Signed Integer                               ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                      ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                      ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                      ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                      ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                      ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                      ;
-; WIDTH_B                            ; 1                    ; Untyped                                      ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                      ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                      ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                      ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                      ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                      ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                      ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                      ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                      ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                      ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                      ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                      ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                      ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                               ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                      ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                      ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                      ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                      ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
-; INIT_FILE                          ; stepper_rom.mif      ; Untyped                                      ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                      ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                      ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                      ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                      ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                      ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                      ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                      ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                      ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                      ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                      ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                      ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                      ;
-; CBXI_PARAMETER                     ; altsyncram_7jg1      ; Untyped                                      ;
-+------------------------------------+----------------------+----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: pc:the_pc ;
-+----------------+----------+----------------------------+
-; Parameter Name ; Value    ; Type                       ;
-+----------------+----------+----------------------------+
-; RESET_LOCATION ; 00000000 ; Unsigned Binary            ;
-+----------------+----------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: instruction_rom:the_instruction_rom|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+------------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                                 ;
-+------------------------------------+----------------------+------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                              ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                       ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                              ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                              ;
-; WIDTH_A                            ; 8                    ; Signed Integer                                       ;
-; WIDTHAD_A                          ; 8                    ; Signed Integer                                       ;
-; NUMWORDS_A                         ; 256                  ; Signed Integer                                       ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                              ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                              ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                              ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                              ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                              ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                              ;
-; WIDTH_B                            ; 1                    ; Untyped                                              ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                              ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                              ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                              ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                              ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                              ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                              ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                              ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                              ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                              ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                              ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                              ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                              ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                              ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                              ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                       ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                              ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                              ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                              ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                              ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                              ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                              ;
-; INIT_FILE                          ; instruction_rom.mif  ; Untyped                                              ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                              ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                              ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                              ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                              ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                              ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                              ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                              ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                              ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                              ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                              ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                              ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                              ;
-; CBXI_PARAMETER                     ; altsyncram_k4h1      ; Untyped                                              ;
-+------------------------------------+----------------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                                ;
-+-------------------------------------------+---------------------------------------------------------------------+
-; Name                                      ; Value                                                               ;
-+-------------------------------------------+---------------------------------------------------------------------+
-; Number of entity instances                ; 2                                                                   ;
-; Entity Instance                           ; stepper_rom:the_stepper_rom|altsyncram:altsyncram_component         ;
-;     -- OPERATION_MODE                     ; ROM                                                                 ;
-;     -- WIDTH_A                            ; 4                                                                   ;
-;     -- NUMWORDS_A                         ; 8                                                                   ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
-;     -- WIDTH_B                            ; 1                                                                   ;
-;     -- NUMWORDS_B                         ; 1                                                                   ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
-; Entity Instance                           ; instruction_rom:the_instruction_rom|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                                                 ;
-;     -- WIDTH_A                            ; 8                                                                   ;
-;     -- NUMWORDS_A                         ; 256                                                                 ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
-;     -- WIDTH_B                            ; 1                                                                   ;
-;     -- NUMWORDS_B                         ; 1                                                                   ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
-+-------------------------------------------+---------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "immediate_extractor:the_immediate_extractor"                                                                                                                                           ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; instruction ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (5 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |immediate_extractor|Mux2  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-----------------------------------------------------+
@@ -703,17 +243,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 11                          ;
-;     normal            ; 11                          ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 6                           ;
-;         3 data inputs ; 1                           ;
-;         6 data inputs ; 1                           ;
-; boundary_port         ; 43                          ;
-; stratixv_ram_block    ; 10                          ;
+; arriav_lcell_comb     ; 8                           ;
+;     normal            ; 8                           ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 2                           ;
+;         5 data inputs ; 2                           ;
+; boundary_port         ; 15                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.27                        ;
+; Max LUT depth         ; 1.00                        ;
+; Average LUT depth     ; 1.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -732,22 +270,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
-    Info: Processing started: Mon Mar 23 12:13:35 2026
+    Info: Processing started: Fri Mar 27 10:06:54 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab5 -c lab5
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file instruction_rom.v
     Info (12023): Found entity 1: instruction_rom File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/instruction_rom.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file write_address_select.v
-    Info (12023): Found entity 1: write_address_select File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/write_address_select.v Line: 1
+    Info (12023): Found entity 1: write_address_select File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/write_address_select.v Line: 13
 Info (12021): Found 1 design units, including 1 entities, in source file temp_register.v
-    Info (12023): Found entity 1: temp_register File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/temp_register.v Line: 1
+    Info (12023): Found entity 1: temp_register File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/temp_register.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file result_mux.v
     Info (12023): Found entity 1: result_mux File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/result_mux.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file regfile.v
-    Info (12023): Found entity 1: regfile File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 3
+    Info (12023): Found entity 1: regfile File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pc.v
-    Info (12023): Found entity 1: pc File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/pc.v Line: 1
+    Info (12023): Found entity 1: pc File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/pc.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file op2_mux.v
     Info (12023): Found entity 1: op2_mux File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/op2_mux.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file op1_mux.v
@@ -757,7 +295,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file immedia
 Info (12021): Found 1 design units, including 1 entities, in source file delay_counter.v
     Info (12023): Found entity 1: delay_counter File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/delay_counter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decoder.v
-    Info (12023): Found entity 1: decoder File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 1
+    Info (12023): Found entity 1: decoder File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
     Info (12023): Found entity 1: datapath File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file control_fsm.v
@@ -768,130 +306,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: alu File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/alu.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file stepper_rom.v
     Info (12023): Found entity 1: stepper_rom File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/stepper_rom.v Line: 40
-Info (12127): Elaborating entity "datapath" for the top level hierarchy
-Info (12128): Elaborating entity "decoder" for hierarchy "decoder:the_decoder" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 53
-Warning (10034): Output port "brz" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "addi" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "subi" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "sr0" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "srh0" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "mov" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "mova" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "movr" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "movrhs" at decoder.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 2
-Warning (10034): Output port "pause" at decoder.v(3) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/decoder.v Line: 3
-Info (12128): Elaborating entity "regfile" for hierarchy "regfile:the_regfile" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 69
-Warning (10034): Output port "selected0" at regfile.v(4) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 4
-Warning (10034): Output port "selected1" at regfile.v(4) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 4
-Warning (10034): Output port "delay" at regfile.v(4) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 4
-Warning (10034): Output port "position" at regfile.v(4) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 4
-Warning (10034): Output port "register0" at regfile.v(4) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 4
-Warning (12158): Entity "regfile" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 69
-Info (12128): Elaborating entity "op1_mux" for hierarchy "op1_mux:the_op1_mux" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 80
-Warning (10034): Output port "result" at op1_mux.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/op1_mux.v Line: 2
-Warning (12158): Entity "op1_mux" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 80
-Info (12128): Elaborating entity "op2_mux" for hierarchy "op2_mux:the_op2_mux" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 89
-Warning (10034): Output port "result" at op2_mux.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/op2_mux.v Line: 2
-Warning (12158): Entity "op2_mux" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 89
-Info (12128): Elaborating entity "delay_counter" for hierarchy "delay_counter:the_delay_counter" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 100
-Warning (10034): Output port "done" at delay_counter.v(1) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/delay_counter.v Line: 1
-Warning (12158): Entity "delay_counter" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 100
-Info (12128): Elaborating entity "stepper_rom" for hierarchy "stepper_rom:the_stepper_rom" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 108
-Info (12128): Elaborating entity "altsyncram" for hierarchy "stepper_rom:the_stepper_rom|altsyncram:altsyncram_component" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/stepper_rom.v Line: 82
-Info (12130): Elaborated megafunction instantiation "stepper_rom:the_stepper_rom|altsyncram:altsyncram_component" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/stepper_rom.v Line: 82
-Info (12133): Instantiated megafunction "stepper_rom:the_stepper_rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/stepper_rom.v Line: 82
-    Info (12134): Parameter "address_aclr_a" = "NONE"
-    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
-    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "stepper_rom.mif"
-    Info (12134): Parameter "intended_device_family" = "Cyclone V"
-    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
-    Info (12134): Parameter "lpm_type" = "altsyncram"
-    Info (12134): Parameter "numwords_a" = "8"
-    Info (12134): Parameter "operation_mode" = "ROM"
-    Info (12134): Parameter "outdata_aclr_a" = "NONE"
-    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
-    Info (12134): Parameter "widthad_a" = "3"
-    Info (12134): Parameter "width_a" = "4"
-    Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_7jg1.tdf
-    Info (12023): Found entity 1: altsyncram_7jg1 File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_7jg1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_7jg1" for hierarchy "stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated" File: c:/intelfpga/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "pc" for hierarchy "pc:the_pc" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 119
-Warning (10034): Output port "pc" at pc.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/pc.v Line: 2
-Warning (12158): Entity "pc" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 119
-Info (12128): Elaborating entity "instruction_rom" for hierarchy "instruction_rom:the_instruction_rom" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 127
-Info (12128): Elaborating entity "altsyncram" for hierarchy "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/instruction_rom.v Line: 82
-Info (12130): Elaborated megafunction instantiation "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/instruction_rom.v Line: 82
-Info (12133): Instantiated megafunction "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/instruction_rom.v Line: 82
-    Info (12134): Parameter "address_aclr_a" = "NONE"
-    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
-    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "instruction_rom.mif"
-    Info (12134): Parameter "intended_device_family" = "Cyclone V"
-    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
-    Info (12134): Parameter "lpm_type" = "altsyncram"
-    Info (12134): Parameter "numwords_a" = "256"
-    Info (12134): Parameter "operation_mode" = "ROM"
-    Info (12134): Parameter "outdata_aclr_a" = "NONE"
-    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
-    Info (12134): Parameter "widthad_a" = "8"
-    Info (12134): Parameter "width_a" = "8"
-    Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_k4h1.tdf
-    Info (12023): Found entity 1: altsyncram_k4h1 File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_k4h1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_k4h1" for hierarchy "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated" File: c:/intelfpga/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "alu" for hierarchy "alu:the_alu" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 138
-Warning (10034): Output port "result" at alu.v(1) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/alu.v Line: 1
-Warning (12158): Entity "alu" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 138
-Info (12128): Elaborating entity "temp_register" for hierarchy "temp_register:the_temp_register" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 152
-Warning (10034): Output port "negative" at temp_register.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/temp_register.v Line: 2
-Warning (10034): Output port "positive" at temp_register.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/temp_register.v Line: 2
-Warning (10034): Output port "zero" at temp_register.v(2) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/temp_register.v Line: 2
-Warning (12158): Entity "temp_register" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 152
-Info (12128): Elaborating entity "immediate_extractor" for hierarchy "immediate_extractor:the_immediate_extractor" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 160
-Warning (10034): Output port "immediate" at immediate_extractor.v(1) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/immediate_extractor.v Line: 1
-Warning (12158): Entity "immediate_extractor" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 160
-Info (12128): Elaborating entity "write_address_select" for hierarchy "write_address_select:the_write_address_select" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 169
-Warning (10034): Output port "write_address" at write_address_select.v(1) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/write_address_select.v Line: 1
-Warning (12158): Entity "write_address_select" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 169
-Info (12128): Elaborating entity "result_mux" for hierarchy "result_mux:the_result_mux" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 175
-Warning (10034): Output port "result" at result_mux.v(5) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/result_mux.v Line: 5
-Warning (12158): Entity "result_mux" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 175
-Info (12128): Elaborating entity "branch_logic" for hierarchy "branch_logic:the_branch_logic" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 182
-Warning (10034): Output port "branch" at branch_logic.v(1) has no driver File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/branch_logic.v Line: 1
-Warning (12158): Entity "branch_logic" contains only dangling pins File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 182
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated|q_a[0]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_k4h1.tdf Line: 35
-        Warning (14320): Synthesized away node "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated|q_a[1]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_k4h1.tdf Line: 56
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "brz" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "addi" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "subi" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "sr0" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "srh0" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "mov" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "mova" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "movr" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "movrhs" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "pause" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 12
-    Warning (13410): Pin "delay_done" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 13
-    Warning (13410): Pin "temp_is_positive" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 14
-    Warning (13410): Pin "temp_is_negative" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 14
-    Warning (13410): Pin "temp_is_zero" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 14
-    Warning (13410): Pin "register0_is_zero" is stuck at GND File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 15
+Warning (10236): Verilog HDL Implicit Net warning at regfile.v(56): created implicit net for "positon" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/regfile.v Line: 56
+Info (12127): Elaborating entity "immediate_extractor" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
-Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "stepper_rom:the_stepper_rom|altsyncram:altsyncram_component|altsyncram_7jg1:auto_generated|ALTSYNCRAM" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_7jg1.tdf Line: 32
-Info (17036): Removed 7 MSB VCC or GND address nodes from RAM block "instruction_rom:the_instruction_rom|altsyncram:altsyncram_component|altsyncram_k4h1:auto_generated|ALTSYNCRAM" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/db/altsyncram_k4h1.tdf Line: 32
-Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "w_instruction_out[7]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 27
-    Info (17048): Logic cell "w_instruction_out[6]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 27
-    Info (17048): Logic cell "w_instruction_out[5]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 27
-    Info (17048): Logic cell "w_instruction_out[4]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 27
-    Info (17048): Logic cell "w_instruction_out[3]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 27
-    Info (17048): Logic cell "w_instruction_out[2]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 27
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
@@ -1467,38 +884,15 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
 Info (144001): Generated suppressed messages file C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/output_files/lab5.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 21 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "reset_n" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 1
-    Warning (15610): No output dependent on input pin "write_reg_file" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 3
-    Warning (15610): No output dependent on input pin "result_mux_select" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 3
-    Warning (15610): No output dependent on input pin "op1_mux_select[0]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 4
-    Warning (15610): No output dependent on input pin "op1_mux_select[1]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 4
-    Warning (15610): No output dependent on input pin "op2_mux_select[0]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 4
-    Warning (15610): No output dependent on input pin "op2_mux_select[1]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 4
-    Warning (15610): No output dependent on input pin "start_delay_counter" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 5
-    Warning (15610): No output dependent on input pin "enable_delay_counter" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 5
-    Warning (15610): No output dependent on input pin "commit_branch" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 6
-    Warning (15610): No output dependent on input pin "increment_pc" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 6
-    Warning (15610): No output dependent on input pin "alu_add_sub" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 7
-    Warning (15610): No output dependent on input pin "alu_set_low" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 7
-    Warning (15610): No output dependent on input pin "alu_set_high" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 7
-    Warning (15610): No output dependent on input pin "load_temp" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 8
-    Warning (15610): No output dependent on input pin "increment_temp" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 8
-    Warning (15610): No output dependent on input pin "decrement_temp" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 8
-    Warning (15610): No output dependent on input pin "select_immediate[0]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 9
-    Warning (15610): No output dependent on input pin "select_immediate[1]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 9
-    Warning (15610): No output dependent on input pin "select_write_address[0]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 10
-    Warning (15610): No output dependent on input pin "select_write_address[1]" File: C:/Users/sirep/OneDrive/Desktop/2026/3tb4/lab/Lab/3tb4/lab5/datapath.v Line: 10
-Info (21057): Implemented 63 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 22 input pins
-    Info (21059): Implemented 21 output pins
-    Info (21061): Implemented 10 logic cells
-    Info (21064): Implemented 10 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 654 warnings
-    Info: Peak virtual memory: 4894 megabytes
-    Info: Processing ended: Mon Mar 23 12:13:41 2026
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:13
+Info (21057): Implemented 23 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 8 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 574 warnings
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Fri Mar 27 10:07:08 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:36
 
 
 +------------------------------------------+

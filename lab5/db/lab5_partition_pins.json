@@ -4,31 +4,63 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "br",
+					"name" : "immediate[0]",
 					"strict" : false
 				},
 				{
-					"name" : "clr",
+					"name" : "immediate[1]",
 					"strict" : false
 				},
 				{
-					"name" : "stepper_signals[0]",
+					"name" : "immediate[2]",
 					"strict" : false
 				},
 				{
-					"name" : "stepper_signals[1]",
+					"name" : "immediate[3]",
 					"strict" : false
 				},
 				{
-					"name" : "stepper_signals[2]",
+					"name" : "immediate[4]",
 					"strict" : false
 				},
 				{
-					"name" : "stepper_signals[3]",
+					"name" : "immediate[5]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "immediate[6]",
+					"strict" : false
+				},
+				{
+					"name" : "immediate[7]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[0]",
+					"strict" : false
+				},
+				{
+					"name" : "select[0]",
+					"strict" : false
+				},
+				{
+					"name" : "select[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[4]",
 					"strict" : false
 				}
 			]

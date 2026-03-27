@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Mar 23 12:13:41 2026
+Analysis & Synthesis Status : Successful - Fri Mar 27 10:07:08 2026
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Standard Edition
 Revision Name : lab5
-Top-level Entity Name : datapath
+Top-level Entity Name : immediate_extractor
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0
-Total pins : 43
+Total pins : 15
 Total virtual pins : 0
-Total block memory bits : 20
+Total block memory bits : 0
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

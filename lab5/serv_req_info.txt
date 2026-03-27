@@ -6,3 +6,35 @@
 	<version>Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition</version>
 </internal_error>
 
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus.exe (5366 megabytes used)</error>
+	<date>Mon Mar 23 16:02:56 2026</date>
+	<version>Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_fit.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_fit.exe (5710 megabytes used)</error>
+	<date>Mon Mar 23 16:51:41 2026</date>
+	<version>Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_fit.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_fit.exe (5709 megabytes used)</error>
+	<date>Mon Mar 23 16:52:05 2026</date>
+	<version>Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_fit.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_fit.exe (6341 megabytes used)</error>
+	<date>Mon Mar 23 17:04:38 2026</date>
+	<version>Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition</version>
+</internal_error>
+

@@ -1,0 +1,11 @@
+# Quartus / build files
+db/
+incremental_db/
+*.rpt
+*.qws
+*.qdf
+*.qpf
+*.qsf
+*.sopcinfo
+*.lock
+*.flock
