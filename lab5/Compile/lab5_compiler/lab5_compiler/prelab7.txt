@@ -13,8 +13,9 @@
 ; 6. Only one instruction is allowed per line
 
 ; Write an assembly-level program that puts the number consisting of the last two digits of your student (53)
+; 00110101 = 53 
 ; number into register R1, then adds 5 to this number and moves the result into register R0. Keep in
-; mind that your student number is a decimal number, so take care to convert it into binary correc
+; mind that your student number is a decimal number, so take care to convert it into binary correctly
 
 ; Let's see some code
 
