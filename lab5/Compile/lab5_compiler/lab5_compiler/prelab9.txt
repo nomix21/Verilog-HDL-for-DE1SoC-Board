@@ -18,42 +18,33 @@
 
 ; Let's see some code
 
-CLR r0          ; clear Register 0 on start
-CLR r1          ; clear Register 1 on start
-
-SR0 #10         ; Set lower half of Register 0 to b1010
-MOV r1 r0       ; Move the Register 0 to Register 1
-
-MOV r3,r0       ; Move the Register 0 to Register 3 (delay reg)
-
-MOVR r1         ; Move the motor by the value in Register 1
-
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-
-MOVRHS r1       ; Move the motor half steps by the value in Register 1
-
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-PAUSE           ; Pause for 8/100's of a second
-
-SUBI r0 #1      ; Subtract 1 from Register 0
-BRZ #2          ; If Register 0 is 0, jump forward 2 instructions
-BR #-8          ; Jump backward 8 instructions
-
-SR0 #8          ; Set lower half of Register 0 to b1000
-SRH0 #8         ; Set upper half of Register 0 to b1000
-                ; Register 0 is now equal to signed -120
-
-MOVRHS r0       ; Move the motor half steps by the value in Register 0
-
+CLR r0      
+SR0 #2      
+SRH0 #3     ; r0 = 50
+MOV r3,r0   ; delay 50/100s of a second 
+SR0 #1      ; r0 = 1
+MOV r1 r0   ; 1 => r1 
+CLR r0      ; setup loop counter
+SR0 #3      ; r0 = 3
+MOVR r1     ; move 1 full step CW
+BR #2		     ; branch 2 forwards to instruction 32
+BR #-6	     ; branch 6 backwards to instruction 25
+SUBI r0 #1  ; r0-1
+PAUSE       
+BRZ #2      ; branch 2 forward if r0 = 0 to instruction 36
+BR #-6      ; branch 6 backwards to instruction 29
+SR0 #9      ; r0 = -1
+MOV r1 r0   ; -1 => r1
+BR #2		     ; branch 2 forwards to instruction 40
+BR #-8	     ; branch 8 backwards to instruction 31
+CLR r0      ; setup loop counter
+SR0 #4      ; r0 = 4
+MOVRHS r1   ; move 1 half step CCW
+SUBI r0 #1  ; r0 -1
+PAUSE       
+BRZ #2      ; branch 2 forward if r0 = 0 to instruction 47
+BR #-4      ; branch 4 backwards to instruction 42
+BR #-8	     ; branch 8 backwards to instruction 39
 
 ; To Compile Me:
-; python compiler.py compiler_tut_01.txt
+; python compiler.py prelab9.txt
