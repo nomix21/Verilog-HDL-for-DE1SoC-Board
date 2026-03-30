@@ -27,24 +27,21 @@ MOV r1 r0   ; 1 => r1
 CLR r0      ; setup loop counter
 SR0 #3      ; r0 = 3
 MOVR r1     ; move 1 full step CW
-BR #2		     ; branch 2 forwards to instruction 32
-BR #-6	     ; branch 6 backwards to instruction 25
+PAUSE
 SUBI r0 #1  ; r0-1
-PAUSE       
-BRZ #2      ; branch 2 forward if r0 = 0 to instruction 36
-BR #-6      ; branch 6 backwards to instruction 29
-SR0 #9      ; r0 = -1
+BRZ #3		     ; branch 3 forwards 
+BR #-4	     ; branch 4 backwards 
+BR #-9
+SR0 #15      ; r0 = -1
 MOV r1 r0   ; -1 => r1
-BR #2		     ; branch 2 forwards to instruction 40
-BR #-8	     ; branch 8 backwards to instruction 31
 CLR r0      ; setup loop counter
 SR0 #4      ; r0 = 4
 MOVRHS r1   ; move 1 half step CCW
+PAUSE
 SUBI r0 #1  ; r0 -1
-PAUSE       
-BRZ #2      ; branch 2 forward if r0 = 0 to instruction 47
-BR #-4      ; branch 4 backwards to instruction 42
-BR #-8	     ; branch 8 backwards to instruction 39
+BR #2		     
+BR #-4	           
+BR #-10
 
 ; To Compile Me:
 ; python compiler.py prelab9.txt
