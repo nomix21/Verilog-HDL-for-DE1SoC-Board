@@ -21,12 +21,12 @@
 CLR r0          ; clear Register 0 on start
 CLR r1          ; clear Register 1 on start
 
-SR0 #3         ; Set lower half of Register 0 to b0011 
-SRH0 #5         ; Set upper half of Register 0 to b0101
+SR0 #5          ; Set lower half of Register 0 to b0101
+SRH0 #3         ; Set upper half of Register 0 to b0011
 
 MOV r1 r0   ; move register 0 to register 1
 
-ADDI r1 #2      ; Add 3 to Register 1
+ADDI r1 #2      ; Add 2 to Register 1
 ADDI r1 #3      ; Add 3 to Register 1
 
 MOV r0 r1       ; Move the Register 1 to Register 0
